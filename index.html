@@ -3,433 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ILLAM TEA — Fresh From Our Gardens</title>
+<title>Illam Tea Nepal — Highland Tea From The Himalayas</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --sage: #8a9e7b;
-    --sage-light: #c8d5bc;
-    --sage-pale: #eef2ea;
-    --cream: #f8f5ef;
-    --brown: #6b4f3a;
-    --brown-light: #c4a882;
-    --dark: #2c2416;
-    --text: #4a3f32;
-    --white: #ffffff;
+    --sage: #8a9e7b; --sage-light: #c8d5bc; --sage-pale: #eef2ea;
+    --cream: #f8f5ef; --brown: #6b4f3a; --brown-light: #c4a882;
+    --dark: #2c2416; --text: #4a3f32; --white: #ffffff;
     --font-display: 'Cormorant Garamond', serif;
     --font-body: 'Jost', sans-serif;
   }
-
   html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--cream); color: var(--text); overflow-x: hidden; }
 
-  body {
-    font-family: var(--font-body);
-    background: var(--cream);
-    color: var(--text);
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 20px 60px;
-    background: rgba(248,245,239,0.92);
-    backdrop-filter: blur(8px);
+    background: rgba(248,245,239,0.92); backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(138,158,123,0.2);
   }
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--dark);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
+  .nav-logo { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--dark); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
   .nav-logo span { color: var(--sage); }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a {
-    font-size: 12px; font-weight: 500; letter-spacing: 1.5px;
-    text-transform: uppercase; color: var(--text); text-decoration: none;
-    transition: color 0.3s;
-  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); text-decoration: none; transition: color 0.3s; }
   .nav-links a:hover { color: var(--sage); }
-  .nav-cta {
-    font-size: 12px; font-weight: 500; letter-spacing: 1.5px;
-    text-transform: uppercase; padding: 10px 24px;
-    border: 1px solid var(--sage); color: var(--sage);
-    background: transparent; cursor: pointer;
-    transition: all 0.3s;
-  }
+  .nav-cta { font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 24px; border: 1px solid var(--sage); color: var(--sage); background: transparent; cursor: pointer; transition: all 0.3s; text-decoration: none; }
   .nav-cta:hover { background: var(--sage); color: var(--white); }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
-    min-height: 100vh;
-    display: grid; grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 120px 60px 80px;
-    background: var(--cream);
-    position: relative;
-    overflow: hidden;
+    min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 120px 60px 80px;
+    background: var(--cream); position: relative; overflow: hidden;
   }
-  .hero::before {
-    content: '';
-    position: absolute; top: -100px; right: -100px;
-    width: 600px; height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(200,213,188,0.4) 0%, transparent 70%);
-    pointer-events: none;
-  }
+  .hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(200,213,188,0.4) 0%, transparent 70%); pointer-events: none; }
   .hero-text { padding-right: 60px; }
-  .hero-eyebrow {
-    font-size: 11px; font-weight: 500; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--sage); margin-bottom: 20px;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .hero-eyebrow::before {
-    content: ''; display: block;
-    width: 40px; height: 1px; background: var(--sage);
-  }
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(48px, 6vw, 80px);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--dark);
-    margin-bottom: 24px;
-  }
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--sage); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--sage); }
+  .hero-title { font-family: var(--font-display); font-size: clamp(48px, 6vw, 80px); font-weight: 300; line-height: 1.1; color: var(--dark); margin-bottom: 24px; }
   .hero-title em { font-style: italic; color: var(--sage); }
-  .hero-desc {
-    font-size: 14px; line-height: 1.8; color: #7a6e63;
-    max-width: 420px; margin-bottom: 40px;
-  }
-  .btn-primary {
-    display: inline-block;
-    padding: 14px 40px;
-    background: var(--sage);
-    color: var(--white);
-    font-size: 11px; font-weight: 500; letter-spacing: 2px;
-    text-transform: uppercase; text-decoration: none;
-    cursor: pointer; border: none;
-    transition: all 0.3s;
-  }
+  .hero-desc { font-size: 14px; line-height: 1.8; color: #7a6e63; max-width: 420px; margin-bottom: 40px; }
+  .btn-primary { display: inline-block; padding: 14px 40px; background: var(--sage); color: var(--white); font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; transition: all 0.3s; }
   .btn-primary:hover { background: var(--dark); transform: translateY(-2px); }
-  .hero-image {
-    position: relative;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .hero-img-main {
-    width: 100%; max-width: 540px;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    border-radius: 2px;
-  }
-  .hero-img-floating {
-    position: absolute;
-    bottom: -30px; left: -30px;
-    width: 180px; height: 180px;
-    object-fit: cover;
-    border: 6px solid var(--cream);
-    border-radius: 50%;
-  }
+  .hero-image { position: relative; display: flex; align-items: center; justify-content: center; }
+  .hero-img-main { width: 100%; max-width: 540px; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; }
+  .hero-img-floating { position: absolute; bottom: -30px; left: -30px; width: 180px; height: 180px; object-fit: cover; border: 6px solid var(--cream); border-radius: 50%; }
+  .hero-badge { position: absolute; top: 30px; right: -10px; background: var(--dark); color: var(--white); padding: 16px 22px; text-align: center; font-family: var(--font-display); font-size: 12px; letter-spacing: 1px; }
+  .hero-badge strong { display: block; font-size: 26px; font-style: italic; color: var(--sage-light); line-height: 1.1; }
 
-  /* ── SECTION WRAPPER ── */
+  /* ORIGIN STATS STRIP */
+  .origin-strip { background: var(--dark); padding: 28px 60px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .origin-stat { text-align: center; }
+  .origin-stat-num { font-family: var(--font-display); font-size: 30px; font-style: italic; color: var(--sage-light); display: block; line-height: 1.1; }
+  .origin-stat-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+  .origin-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.1); }
+
+  /* SHARED */
   section { padding: 100px 60px; }
-
-  .section-label {
-    font-size: 10px; font-weight: 500; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--sage);
-    margin-bottom: 12px;
-  }
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(36px, 4vw, 56px);
-    font-weight: 300;
-    line-height: 1.15;
-    color: var(--dark);
-  }
+  .section-label { font-size: 10px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+  .section-title { font-family: var(--font-display); font-size: clamp(36px, 4vw, 56px); font-weight: 300; line-height: 1.15; color: var(--dark); }
   .section-title em { font-style: italic; color: var(--sage); }
 
-  /* ── BENEFITS ── */
-  .benefits {
-    background: var(--white);
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
-  }
-  .benefits-image {
-    position: relative;
-  }
-  .benefits-img {
-    width: 100%; aspect-ratio: 3/4; object-fit: cover;
-  }
-  .benefits-badge {
-    position: absolute; top: 30px; right: -20px;
-    background: var(--sage);
-    color: var(--white);
-    padding: 20px;
-    font-family: var(--font-display);
-    font-size: 13px; font-style: italic;
-    text-align: center; max-width: 120px;
-  }
+  /* BENEFITS */
+  .benefits { background: var(--white); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .benefits-image { position: relative; }
+  .benefits-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+  .benefits-badge { position: absolute; top: 30px; right: -20px; background: var(--sage); color: var(--white); padding: 20px; font-family: var(--font-display); font-size: 13px; font-style: italic; text-align: center; max-width: 120px; }
   .benefits-list { margin-top: 40px; display: flex; flex-direction: column; gap: 24px; }
   .benefit-item { display: flex; gap: 20px; align-items: flex-start; }
-  .benefit-icon {
-    width: 42px; height: 42px; flex-shrink: 0;
-    background: var(--sage-pale);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
-  }
-  .benefit-item h4 {
-    font-family: var(--font-display); font-size: 18px; font-weight: 400;
-    color: var(--dark); margin-bottom: 4px;
-  }
+  .benefit-icon { width: 42px; height: 42px; flex-shrink: 0; background: var(--sage-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .benefit-item h4 { font-family: var(--font-display); font-size: 18px; font-weight: 400; color: var(--dark); margin-bottom: 4px; }
   .benefit-item p { font-size: 13px; line-height: 1.7; color: #7a6e63; }
 
-  /* ── WHY US ── */
-  .why-us {
-    background: var(--sage-pale);
-    text-align: center;
-  }
-  .why-us .section-title { margin-bottom: 60px; }
-  .why-grid {
-    display: grid; grid-template-columns: repeat(3,1fr);
-    gap: 40px; max-width: 900px; margin: 0 auto;
-  }
-  .why-card {
-    background: var(--white);
-    padding: 40px 30px;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
+  /* WHY US */
+  .why-us { background: var(--sage-pale); text-align: center; }
+  .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; max-width: 900px; margin: 48px auto 0; }
+  .why-card { background: var(--white); padding: 40px 30px; transition: transform 0.3s, box-shadow 0.3s; }
   .why-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
   .why-card .icon { font-size: 36px; margin-bottom: 16px; }
-  .why-card h4 {
-    font-family: var(--font-display); font-size: 20px; font-weight: 400;
-    color: var(--dark); margin-bottom: 10px;
-  }
+  .why-card h4 { font-family: var(--font-display); font-size: 20px; font-weight: 400; color: var(--dark); margin-bottom: 10px; }
   .why-card p { font-size: 13px; line-height: 1.7; color: #7a6e63; }
 
-  /* ── TEA BLENDS ── */
+  /* BLENDS */
   .blends { background: var(--cream); }
-  .blends-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 50px;
-  }
-  .blends-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-  }
+  .blends-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px; }
+  .blends-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
   .blend-card { cursor: pointer; }
-  .blend-img-wrap {
-    aspect-ratio: 1;
-    overflow: hidden; margin-bottom: 16px;
-    position: relative;
-  }
-  .blend-img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.5s;
-  }
+  .blend-img-wrap { aspect-ratio: 1; overflow: hidden; margin-bottom: 16px; position: relative; }
+  .blend-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
   .blend-card:hover .blend-img { transform: scale(1.08); }
-  .blend-overlay {
-    position: absolute; inset: 0;
-    background: rgba(44,36,22,0);
-    transition: background 0.3s;
-    display: flex; align-items: flex-end; padding: 20px;
-  }
+  .blend-overlay { position: absolute; inset: 0; background: rgba(44,36,22,0); transition: background 0.3s; display: flex; align-items: flex-end; padding: 20px; }
   .blend-card:hover .blend-overlay { background: rgba(44,36,22,0.3); }
-  .blend-overlay-text {
-    color: var(--white); opacity: 0;
-    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-    transition: opacity 0.3s;
-  }
+  .blend-overlay-text { color: var(--white); opacity: 0; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; transition: opacity 0.3s; }
   .blend-card:hover .blend-overlay-text { opacity: 1; }
-  .blend-name {
-    font-family: var(--font-display); font-size: 20px; font-weight: 400;
-    color: var(--dark); margin-bottom: 4px;
-  }
+  .blend-name { font-family: var(--font-display); font-size: 20px; font-weight: 400; color: var(--dark); margin-bottom: 4px; }
   .blend-type { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); }
   .blend-price { font-size: 14px; color: var(--brown); margin-top: 6px; }
 
-  /* ── MENU ── */
-  .menu {
-    background: var(--dark);
-    color: var(--white);
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
-  }
+  /* MENU */
+  .menu { background: var(--dark); color: var(--white); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   .menu .section-label { color: var(--brown-light); }
-  .menu .section-title { color: var(--white); }
-  .menu-items { margin-top: 40px; display: flex; flex-direction: column; gap: 0; }
-  .menu-item {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    cursor: pointer;
-    transition: all 0.3s;
-  }
+  .menu-items { margin-top: 40px; display: flex; flex-direction: column; }
+  .menu-item { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s; }
   .menu-item:hover { padding-left: 10px; }
-  .menu-item-name {
-    font-family: var(--font-display); font-size: 22px; font-weight: 300;
-    color: var(--white);
-  }
+  .menu-item-name { font-family: var(--font-display); font-size: 22px; font-weight: 300; color: var(--white); }
   .menu-item-desc { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
-  .menu-item-price {
-    font-family: var(--font-display); font-size: 20px;
-    color: var(--brown-light);
-  }
-  .menu-img {
-    width: 100%; aspect-ratio: 4/3; object-fit: cover;
-    filter: brightness(0.85);
-  }
+  .menu-item-price { font-family: var(--font-display); font-size: 20px; color: var(--brown-light); }
+  .menu-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; filter: brightness(0.85); }
 
-  /* ── QUOTE BANNER ── */
-  .quote-banner {
-    background: var(--sage);
-    padding: 80px 60px;
-    text-align: center;
-  }
-  .quote-text {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 4vw, 52px);
-    font-style: italic; font-weight: 300;
-    color: var(--white);
-    line-height: 1.3;
-    max-width: 800px; margin: 0 auto 20px;
-  }
-  .quote-author {
-    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-  }
+  /* QUOTE */
+  .quote-banner { background: var(--sage); padding: 80px 60px; text-align: center; }
+  .quote-text { font-family: var(--font-display); font-size: clamp(24px, 3.5vw, 48px); font-style: italic; font-weight: 300; color: var(--white); line-height: 1.3; max-width: 860px; margin: 0 auto 20px; }
+  .quote-author { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.7); }
 
-  /* ── PRODUCT FEATURE ── */
-  .product-feature {
-    background: var(--cream);
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
-  }
-  .product-card {
-    background: var(--sage-pale);
-    padding: 60px;
-    text-align: center;
-    position: relative;
-  }
-  .product-card::before {
-    content: 'FEATURED';
-    position: absolute; top: 20px; left: 20px;
-    font-size: 9px; letter-spacing: 3px;
-    color: var(--sage); font-weight: 500;
-  }
-  .product-card-img {
-    width: 220px; height: 320px;
-    object-fit: cover; margin: 0 auto 30px;
-    display: block;
-    box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
-  }
-  .product-card-name {
-    font-family: var(--font-display); font-size: 36px; font-weight: 300;
-    color: var(--dark); margin-bottom: 8px;
-  }
-  .product-card-sub {
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--sage); margin-bottom: 20px;
-  }
-  .product-card-price {
-    font-family: var(--font-display); font-size: 28px;
-    color: var(--brown);
-  }
+  /* PRODUCT FEATURE */
+  .product-feature { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .product-card { background: var(--sage-pale); padding: 60px; text-align: center; position: relative; }
+  .product-card::before { content: 'FEATURED'; position: absolute; top: 20px; left: 20px; font-size: 9px; letter-spacing: 3px; color: var(--sage); font-weight: 500; }
+  .product-card-img { width: 220px; height: 320px; object-fit: cover; margin: 0 auto 30px; display: block; box-shadow: 20px 20px 60px rgba(0,0,0,0.1); }
+  .product-card-name { font-family: var(--font-display); font-size: 36px; font-weight: 300; color: var(--dark); margin-bottom: 8px; }
+  .product-card-sub { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-bottom: 20px; }
+  .product-card-price { font-family: var(--font-display); font-size: 28px; color: var(--brown); }
   .product-features-list { list-style: none; margin-top: 30px; display: flex; flex-direction: column; gap: 16px; }
-  .product-features-list li {
-    display: flex; align-items: center; gap: 14px;
-    font-size: 13px; line-height: 1.6;
-  }
-  .product-features-list li::before {
-    content: '✦'; color: var(--sage); flex-shrink: 0; font-size: 10px;
-  }
+  .product-features-list li { display: flex; align-items: center; gap: 14px; font-size: 13px; line-height: 1.6; }
+  .product-features-list li::before { content: '✦'; color: var(--sage); flex-shrink: 0; font-size: 10px; }
 
-  /* ── TESTIMONIALS ── */
-  .testimonials {
-    background: var(--white);
-    text-align: center;
-  }
-  .testimonials .section-title { margin-bottom: 60px; }
-  .testimonials-grid {
-    display: grid; grid-template-columns: repeat(3,1fr);
-    gap: 32px;
-  }
-  .testimonial-card {
-    padding: 40px 32px;
-    border: 1px solid var(--sage-light);
-    text-align: left;
-    transition: transform 0.3s;
-  }
+  /* TESTIMONIALS */
+  .testimonials { background: var(--white); text-align: center; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
+  .testimonial-card { padding: 40px 32px; border: 1px solid var(--sage-light); text-align: left; transition: transform 0.3s; }
   .testimonial-card:hover { transform: translateY(-4px); }
   .stars { color: var(--sage); font-size: 14px; letter-spacing: 3px; margin-bottom: 16px; }
-  .testimonial-text {
-    font-family: var(--font-display); font-size: 17px; font-style: italic;
-    font-weight: 300; line-height: 1.6; color: var(--dark); margin-bottom: 24px;
-  }
+  .testimonial-text { font-family: var(--font-display); font-size: 17px; font-style: italic; font-weight: 300; line-height: 1.6; color: var(--dark); margin-bottom: 24px; }
   .testimonial-author { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); }
 
-  /* ── GALLERY ── */
-  .gallery {
-    padding: 0; overflow: hidden;
-    display: grid; grid-template-columns: repeat(5, 1fr);
-    height: 320px;
-  }
+  /* GALLERY */
+  .gallery { padding: 0; overflow: hidden; display: grid; grid-template-columns: repeat(5, 1fr); height: 320px; }
   .gallery-item { overflow: hidden; position: relative; }
-  .gallery-item img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.6s;
-    filter: brightness(0.85);
-  }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; filter: brightness(0.85); }
   .gallery-item:hover img { transform: scale(1.12); filter: brightness(1); }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--dark);
-    color: rgba(255,255,255,0.7);
-    padding: 80px 60px 40px;
-  }
-  .footer-grid {
-    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 60px; margin-bottom: 60px;
-  }
+  /* FOOTER */
+  footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 80px 60px 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
   .footer-brand .nav-logo { color: var(--white); font-size: 24px; display: block; margin-bottom: 16px; }
   .footer-brand p { font-size: 13px; line-height: 1.8; max-width: 260px; }
-  footer h5 {
-    font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--white); margin-bottom: 20px; font-weight: 500;
-  }
+  footer h5 { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--white); margin-bottom: 20px; font-weight: 500; }
   footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  footer ul a {
-    font-size: 13px; color: rgba(255,255,255,0.6);
-    text-decoration: none; transition: color 0.3s;
-  }
+  footer ul a { font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
   footer ul a:hover { color: var(--sage-light); }
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 30px;
-    display: flex; justify-content: space-between;
-    font-size: 12px;
-  }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; display: flex; justify-content: space-between; font-size: 12px; }
 
-  /* ── ANIMATIONS ── */
-  .fade-up {
-    opacity: 0; transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
   .fade-up:nth-child(2) { transition-delay: 0.1s; }
   .fade-up:nth-child(3) { transition-delay: 0.2s; }
   .fade-up:nth-child(4) { transition-delay: 0.3s; }
 
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
   @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
-    .nav-links { display: none; }
+    nav { padding: 16px 24px; } .nav-links { display: none; }
     section { padding: 70px 24px; }
     .hero { grid-template-columns: 1fr; padding: 110px 24px 60px; }
     .hero-text { padding-right: 0; margin-bottom: 40px; }
@@ -437,6 +174,8 @@
     .why-grid, .testimonials-grid, .blends-grid { grid-template-columns: 1fr 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .gallery { grid-template-columns: repeat(3, 1fr); height: 240px; }
+    .origin-strip { justify-content: center; padding: 28px 24px; }
+    .origin-divider { display: none; }
   }
 </style>
 </head>
@@ -444,72 +183,100 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">ILLAM<span> TEA</span></div>
+  <a href="index.html" class="nav-logo">Illam<span> Tea</span></a>
   <ul class="nav-links">
-    <li><a href="#blends">Blends</a></li>
+    <li><a href="#blends"> </a></li>
     <li><a href="#menu">Menu</a></li>
     <li><a href="about-us.html">About Us</a></li>
-    <li><a href="#gallery">Gallery</a></li>
     <li><a href="future.html">Future</a></li>
     <li><a href="references.html">References</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <button class="nav-cta">Shop Now</button>
+  <a href="#blends" class="nav-cta">Shop Now</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text fade-up">
-    <div class="hero-eyebrow">Premium Tea Collection</div>
+    <div class="hero-eyebrow">Grown at 2,200m · Illam Valley, Nepal</div>
     <h1 class="hero-title">
-      Fresh From Our <em>Tea Gardens</em><br>To Your Cup
+      Straight From the<br><em>Hills of Illam</em><br>To Your Cup
     </h1>
     <p class="hero-desc">
-      Discover the art of fine tea — handpicked from the world's finest estates, delivering purity, flavor, and wellness in every single sip.
+      Discover Nepal's finest highland tea — handpicked on mist-covered slopes between 1,000–2,200 metres above sea level in the pristine Illam Valley, where altitude, heritage and tradition create a flavour found nowhere else on earth.
     </p>
-    <a href="#blends" class="btn-primary">Explore Our Teas</a>
+    <a href="#blends" class="btn-primary">Explore Illam Teas</a>
   </div>
   <div class="hero-image fade-up">
     <img class="hero-img-main"
-      src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=800&q=80"
-      alt="Tea ceremony" />
+      src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+      alt="Illam tea gardens Nepal" />
     <img class="hero-img-floating"
-      src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&q=80"
-      alt="Matcha" />
+      src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=80"
+      alt="Fresh Illam tea leaves" />
+    <div class="hero-badge">Est.<strong>1863</strong>Illam, Nepal</div>
   </div>
 </section>
+
+<!-- ORIGIN STATS STRIP -->
+<div class="origin-strip">
+  <div class="origin-stat">
+    <span class="origin-stat-num">2,200m</span>
+    <span class="origin-stat-label">Max. Altitude</span>
+  </div>
+  <div class="origin-divider"></div>
+  <div class="origin-stat">
+    <span class="origin-stat-num">160+</span>
+    <span class="origin-stat-label">Years of Heritage</span>
+  </div>
+  <div class="origin-divider"></div>
+  <div class="origin-stat">
+    <span class="origin-stat-num">100%</span>
+    <span class="origin-stat-label">Single Origin Nepal</span>
+  </div>
+  <div class="origin-divider"></div>
+  <div class="origin-stat">
+    <span class="origin-stat-num">4</span>
+    <span class="origin-stat-label">Annual Harvests</span>
+  </div>
+  <div class="origin-divider"></div>
+  <div class="origin-stat">
+    <span class="origin-stat-num">Hand</span>
+    <span class="origin-stat-label">Plucked Every Leaf</span>
+  </div>
+</div>
 
 <!-- BENEFITS -->
 <section class="benefits" id="about">
   <div class="benefits-image fade-up">
     <img class="benefits-img"
       src="https://images.unsplash.com/photo-1563911892437-1feda0179e1b?w=700&q=80"
-      alt="Tea benefits" />
-    <div class="benefits-badge">Pure &amp; Natural</div>
+      alt="Illam tea health benefits" />
+    <div class="benefits-badge">Pure Himalayan</div>
   </div>
   <div class="fade-up">
-    <div class="section-label">Why Tea</div>
-    <h2 class="section-title">The Hidden Health<br><em>Benefits Of Tea</em></h2>
+    <div class="section-label">Why Illam Tea</div>
+    <h2 class="section-title">The Remarkable Health<br><em>Benefits of Illam Tea</em></h2>
     <div class="benefits-list">
       <div class="benefit-item">
         <div class="benefit-icon">🍃</div>
         <div>
-          <h4>Rich in Antioxidants</h4>
-          <p>Tea leaves are loaded with polyphenols that protect your cells and reduce inflammation naturally.</p>
+          <h4>Exceptionally High in Antioxidants</h4>
+          <p>Grown at high altitude with slower leaf development, Illam tea contains significantly higher concentrations of catechins and polyphenols than lowland teas — offering powerful antioxidant protection and supporting long-term wellbeing.</p>
         </div>
       </div>
       <div class="benefit-item">
         <div class="benefit-icon">🧘</div>
         <div>
-          <h4>Calming &amp; Centering</h4>
-          <p>L-theanine in tea promotes relaxed alertness — calm focus without the jitters of coffee.</p>
+          <h4>Natural Calm &amp; Mental Clarity</h4>
+          <p>The elevated L-theanine content in Illam's mountain-grown leaves delivers a uniquely smooth, focused alertness — without the jittery feeling associated with regular tea or coffee.</p>
         </div>
       </div>
       <div class="benefit-item">
-        <div class="benefit-icon">✨</div>
+        <div class="benefit-icon">🌿</div>
         <div>
-          <h4>Boosts Immunity</h4>
-          <p>Regular tea consumption supports a healthy immune system and promotes overall vitality.</p>
+          <h4>Pure &amp; Chemical-Free</h4>
+          <p>The remote Illam hillsides are naturally free from industrial pollution. Most family gardens use traditional organic methods passed down across generations, with no synthetic pesticides or artificial inputs.</p>
         </div>
       </div>
     </div>
@@ -519,22 +286,22 @@
 <!-- WHY US -->
 <section class="why-us fade-up">
   <div class="section-label" style="text-align:center">Why Choose Us</div>
-  <h2 class="section-title" style="text-align:center;margin-bottom:0">Why Choose <em>Us</em></h2>
-  <div class="why-grid" style="margin-top:60px">
+  <h2 class="section-title" style="text-align:center">What Makes <em>Illam Unique</em></h2>
+  <div class="why-grid">
     <div class="why-card fade-up">
-      <div class="icon">🌿</div>
-      <h4>Organic Produce</h4>
-      <p>Every blend is certified organic, grown without pesticides or synthetic additives.</p>
+      <div class="icon">🏔️</div>
+      <h4>Himalayan Terroir</h4>
+      <p>Grown between 1,000–2,200m in the eastern hills of Nepal, the unique altitude, mist, and mineral-rich soil of Illam produce a complex flavour profile found nowhere else on earth.</p>
     </div>
     <div class="why-card fade-up">
-      <div class="icon">🚚</div>
-      <h4>Free Shipping</h4>
-      <p>Enjoy complimentary delivery on all orders over £35, anywhere in the UK.</p>
+      <div class="icon">👐</div>
+      <h4>Hand-Plucked Leaves</h4>
+      <p>Every single leaf is carefully hand-plucked by skilled local farmers. Only the finest two leaves and a bud are selected — the time-honoured standard for premium quality Nepali tea.</p>
     </div>
     <div class="why-card fade-up">
-      <div class="icon">🏆</div>
-      <h4>Award Winning</h4>
-      <p>Recognised internationally for our commitment to quality and sustainability.</p>
+      <div class="icon">🌱</div>
+      <h4>Supporting Local Farmers</h4>
+      <p>We source directly from small family-owned gardens across the Illam district, ensuring fair wages, community investment, and the preservation of Nepal's centuries-old tea heritage.</p>
     </div>
   </div>
 </section>
@@ -543,47 +310,47 @@
 <section class="blends" id="blends">
   <div class="blends-header fade-up">
     <div>
-      <div class="section-label">Collection</div>
-      <h2 class="section-title">Our Unique <em>Tea Blends</em></h2>
+      <div class="section-label">From Illam Valley, Nepal</div>
+      <h2 class="section-title">Our Illam <em>Tea Collection</em></h2>
     </div>
     <a href="#" class="btn-primary" style="flex-shrink:0">View All</a>
   </div>
   <div class="blends-grid">
     <div class="blend-card fade-up">
       <div class="blend-img-wrap">
-        <img class="blend-img" src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&q=80" alt="Matcha" />
+        <img class="blend-img" src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500&q=80" alt="Illam First Flush Black Tea" />
         <div class="blend-overlay"><span class="blend-overlay-text">Shop Now →</span></div>
       </div>
-      <div class="blend-type">Green</div>
-      <div class="blend-name">Ceremonial Matcha</div>
-      <div class="blend-price">£18.00</div>
+      <div class="blend-type">Black Tea · Spring</div>
+      <div class="blend-name">Illam First Flush</div>
+      <div class="blend-price">£16.00 / 50g</div>
     </div>
     <div class="blend-card fade-up">
       <div class="blend-img-wrap">
-        <img class="blend-img" src="https://images.unsplash.com/photo-1585515320310-259814833e62?w=500&q=80" alt="Oolong" />
+        <img class="blend-img" src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&q=80" alt="Himalayan Green Tea" />
         <div class="blend-overlay"><span class="blend-overlay-text">Shop Now →</span></div>
       </div>
-      <div class="blend-type">Oolong</div>
-      <div class="blend-name">Milk Oolong</div>
-      <div class="blend-price">£16.00</div>
+      <div class="blend-type">Green Tea · Year-Round</div>
+      <div class="blend-name">Himalayan Green</div>
+      <div class="blend-price">£18.00 / 50g</div>
     </div>
     <div class="blend-card fade-up">
       <div class="blend-img-wrap">
-        <img class="blend-img" src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500&q=80" alt="Chamomile" />
+        <img class="blend-img" src="https://images.unsplash.com/photo-1585515320310-259814833e62?w=500&q=80" alt="Illam Mountain Oolong" />
         <div class="blend-overlay"><span class="blend-overlay-text">Shop Now →</span></div>
       </div>
-      <div class="blend-type">Herbal</div>
-      <div class="blend-name">Alpine Chamomile</div>
-      <div class="blend-price">£12.00</div>
+      <div class="blend-type">Oolong · Summer</div>
+      <div class="blend-name">Illam Mountain Oolong</div>
+      <div class="blend-price">£20.00 / 50g</div>
     </div>
     <div class="blend-card fade-up">
       <div class="blend-img-wrap">
-        <img class="blend-img" src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500&q=80" alt="Black Tea" />
+        <img class="blend-img" src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500&q=80" alt="Silver Needle White Tea" />
         <div class="blend-overlay"><span class="blend-overlay-text">Shop Now →</span></div>
       </div>
-      <div class="blend-type">Black</div>
-      <div class="blend-name">Darjeeling First Flush</div>
-      <div class="blend-price">£14.00</div>
+      <div class="blend-type">White Tea · Spring</div>
+      <div class="blend-name">Silver Needle Illam</div>
+      <div class="blend-price">£24.00 / 50g</div>
     </div>
   </div>
 </section>
@@ -591,55 +358,55 @@
 <!-- MENU -->
 <section class="menu" id="menu">
   <div>
-    <div class="section-label">Our Best</div>
-    <h2 class="section-title" style="color:var(--white)">Our Best <em>Menu</em></h2>
+    <div class="section-label">Brew &amp; Enjoy</div>
+    <h2 class="section-title" style="color:var(--white)">Our Illam <em>Tea Menu</em></h2>
     <div class="menu-items">
       <div class="menu-item fade-up">
         <div>
-          <div class="menu-item-name">Earl Grey Supreme</div>
-          <div class="menu-item-desc">Bergamot, blue cornflower petals</div>
-        </div>
-        <div class="menu-item-price">£4.50</div>
-      </div>
-      <div class="menu-item fade-up">
-        <div>
-          <div class="menu-item-name">Jasmine Pearl</div>
-          <div class="menu-item-desc">Hand-rolled green tea, jasmine blossom</div>
+          <div class="menu-item-name">Illam First Flush Black</div>
+          <div class="menu-item-desc">Light, floral &amp; delicate — the finest of spring harvest</div>
         </div>
         <div class="menu-item-price">£5.00</div>
       </div>
       <div class="menu-item fade-up">
         <div>
-          <div class="menu-item-name">Masala Chai</div>
-          <div class="menu-item-desc">Spiced black tea, cardamom, ginger</div>
+          <div class="menu-item-name">Himalayan Green</div>
+          <div class="menu-item-desc">Fresh, grassy &amp; clean with a sweet high-altitude finish</div>
         </div>
-        <div class="menu-item-price">£4.00</div>
+        <div class="menu-item-price">£5.50</div>
       </div>
       <div class="menu-item fade-up">
         <div>
-          <div class="menu-item-name">Hibiscus Bloom</div>
-          <div class="menu-item-desc">Hibiscus, rosehip, lemon verbena</div>
+          <div class="menu-item-name">Illam Mountain Oolong</div>
+          <div class="menu-item-desc">Partially oxidised, honey-floral with a buttery complexity</div>
         </div>
-        <div class="menu-item-price">£3.80</div>
+        <div class="menu-item-price">£6.00</div>
       </div>
       <div class="menu-item fade-up">
         <div>
-          <div class="menu-item-name">White Peony</div>
-          <div class="menu-item-desc">Delicate silver tips, floral finish</div>
+          <div class="menu-item-name">Silver Needle White</div>
+          <div class="menu-item-desc">Rare silver buds, soft melon sweetness &amp; mellow body</div>
         </div>
-        <div class="menu-item-price">£6.50</div>
+        <div class="menu-item-price">£7.00</div>
+      </div>
+      <div class="menu-item fade-up">
+        <div>
+          <div class="menu-item-name">Autumnal Illam Black</div>
+          <div class="menu-item-desc">Bold, malty &amp; rich — the character of second flush Illam</div>
+        </div>
+        <div class="menu-item-price">£4.50</div>
       </div>
     </div>
   </div>
   <img class="menu-img fade-up"
     src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=700&q=80"
-    alt="Tea selection" />
+    alt="Illam tea preparation" />
 </section>
 
 <!-- QUOTE BANNER -->
 <div class="quote-banner">
-  <p class="quote-text">"Sometimes All You Need Is A Good Cup Of Tea"</p>
-  <div class="quote-author">— The ILLAM TEA Philosophy</div>
+  <p class="quote-text">"In every cup of Illam tea, you taste the Himalayas — the mist, the altitude, and the hands that carried it here."</p>
+  <div class="quote-author">— The Illam Tea Nepal Philosophy</div>
 </div>
 
 <!-- PRODUCT FEATURE -->
@@ -647,47 +414,48 @@
   <div class="product-card fade-up">
     <img class="product-card-img"
       src="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=400&q=80"
-      alt="Oolong Tea" />
-    <div class="product-card-name">Oolong Tea</div>
-    <div class="product-card-sub">Premium Collection</div>
-    <div class="product-card-price">£22.00 / 50g</div>
+      alt="Illam First Flush Black Tea" />
+    <div class="product-card-name">Illam First Flush</div>
+    <div class="product-card-sub">Spring Harvest · Black Tea · Nepal</div>
+    <div class="product-card-price">£16.00 / 50g</div>
     <button class="btn-primary" style="margin-top:24px">Add To Cart</button>
   </div>
   <div class="fade-up">
-    <div class="section-label">We Believe</div>
-    <h2 class="section-title">We Believe In Perfection<br><em>In The Art Of Tea</em></h2>
-    <p style="margin-top:20px;font-size:14px;line-height:1.8;color:#7a6e63;max-width:400px">
-      Every leaf is selected by hand. Every blend is crafted with intention. We partner only with estates that share our philosophy of quality without compromise.
+    <div class="section-label">Our Promise</div>
+    <h2 class="section-title">Pure Illam Tea,<br><em>Nothing Else Added</em></h2>
+    <p style="margin-top:20px;font-size:14px;line-height:1.8;color:#7a6e63;max-width:440px">
+      The Illam Valley of eastern Nepal has been growing tea since the 1860s, when the British established the first gardens on its fog-draped slopes. Today, local Nepali families carry on that heritage — hand-plucking leaves at elevations where cooler air slows growth, concentrating every nuance of flavour, aroma, and health benefit naturally.
     </p>
     <ul class="product-features-list" style="margin-top:32px">
-      <li>Single-origin leaves from certified estates</li>
-      <li>Nitrogen-sealed packaging for freshness</li>
-      <li>Free from artificial flavourings or additives</li>
-      <li>Sustainably harvested and ethically sourced</li>
-      <li>100% recyclable packaging</li>
+      <li>100% single-origin from Illam Valley, Eastern Nepal</li>
+      <li>Hand-plucked — only two leaves and a bud selected</li>
+      <li>No artificial flavourings, additives or blending agents</li>
+      <li>Direct trade — supporting local Nepali farming families</li>
+      <li>Nitrogen-sealed to preserve Himalayan freshness</li>
+      <li>Fully biodegradable and recyclable packaging</li>
     </ul>
-    <button class="btn-primary" style="margin-top:40px">Discover More</button>
+    <button class="btn-primary" style="margin-top:40px">Discover the Origin</button>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
 <section class="testimonials">
-  <div class="section-label" style="text-align:center">Reviews</div>
-  <h2 class="section-title" style="text-align:center">You Can Have A Tea<br><em>Like Many</em></h2>
+  <div class="section-label" style="text-align:center">Customer Stories</div>
+  <h2 class="section-title" style="text-align:center">What Our Customers<br><em>Say About Illam</em></h2>
   <div class="testimonials-grid" style="margin-top:60px">
     <div class="testimonial-card fade-up">
       <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"The Ceremonial Matcha is absolutely life-changing. Rich, smooth and utterly perfect."</p>
+      <p class="testimonial-text">"The Illam First Flush is unlike any tea I've ever tasted. Floral, delicate, completely addictive — I order it every spring without fail."</p>
       <div class="testimonial-author">— Sarah M., London</div>
     </div>
     <div class="testimonial-card fade-up">
       <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"I've tried dozens of tea brands. ILLAM TEA is in a different league entirely."</p>
+      <p class="testimonial-text">"I trekked through eastern Nepal and fell in love with Illam. Finding this brand brought that whole experience right back to my cup at home."</p>
       <div class="testimonial-author">— James T., Edinburgh</div>
     </div>
     <div class="testimonial-card fade-up">
       <div class="stars">★★★★★</div>
-      <p class="testimonial-text">"The packaging is beautiful and the quality is exceptional. My daily ritual."</p>
+      <p class="testimonial-text">"The Himalayan Green has completely replaced my morning matcha. Cleaner, grassier, more alive. So glad I finally discovered Illam tea."</p>
       <div class="testimonial-author">— Priya K., Manchester</div>
     </div>
   </div>
@@ -695,75 +463,63 @@
 
 <!-- GALLERY -->
 <div class="gallery" id="gallery">
-  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&q=80" alt="" /></div>
-  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=80" alt="" /></div>
-  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400&q=80" alt="" /></div>
-  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1563911892437-1feda0179e1b?w=400&q=80" alt="" /></div>
-  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=400&q=80" alt="" /></div>
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Illam tea garden hillside" /></div>
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=80" alt="Brewing Illam tea" /></div>
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400&q=80" alt="Illam tea cup" /></div>
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1563911892437-1feda0179e1b?w=400&q=80" alt="Fresh Illam leaves" /></div>
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=400&q=80" alt="Nepal highlands Illam" /></div>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <span class="nav-logo">Tea<span style="color:var(--sage)">Leaf</span></span>
-      <p>From our gardens to your cup — we bring the world's finest teas to your door, sustainably and with love.</p>
+      <span class="nav-logo">Illam<span style="color:var(--sage)"> Tea</span></span>
+      <p>From the misty hills of eastern Nepal to your cup — pure, single-origin Illam tea grown with 160 years of Himalayan tradition and delivered with care.</p>
     </div>
     <div>
-      <h5>Shop</h5>
+      <h5>Our Teas</h5>
       <ul>
-        <li><a href="#">Green Teas</a></li>
-        <li><a href="#">Black Teas</a></li>
-        <li><a href="#">Oolong Teas</a></li>
-        <li><a href="#">Herbal Blends</a></li>
-        <li><a href="#">Gift Sets</a></li>
+        <li><a href="#">Illam First Flush</a></li>
+        <li><a href="#">Himalayan Green</a></li>
+        <li><a href="#">Mountain Oolong</a></li>
+        <li><a href="#">Silver Needle White</a></li>
+        <li><a href="#">Gift Collections</a></li>
       </ul>
     </div>
     <div>
       <h5>Company</h5>
       <ul>
-        <li><a href="#">Our Story</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="future.html">Future Strategy</a></li>
+        <li><a href="#">Our Farmers</a></li>
         <li><a href="#">Sustainability</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Press</a></li>
       </ul>
     </div>
     <div>
       <h5>Help</h5>
       <ul>
+        <li><a href="references.html">References</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
         <li><a href="#">Shipping</a></li>
         <li><a href="#">Returns</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Contact</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 ILLAM TEA. All rights reserved.</span>
+    <span>© 2025 Illam Tea Nepal. All rights reserved.</span>
     <span>Privacy Policy · Terms of Service</span>
   </div>
 </footer>
 
 <script>
-  // Intersection Observer for fade-up animations
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
-    });
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // Smooth nav background on scroll
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
-    } else {
-      nav.style.boxShadow = 'none';
-    }
+    nav.style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,0.08)' : 'none';
   });
 </script>
 </body>

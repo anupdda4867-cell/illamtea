@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>References — ILLAM TEA</title>
+<title>References — Ilam Tea Nepal</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -17,6 +17,7 @@
   html { scroll-behavior: smooth; }
   body { font-family: var(--font-body); background: var(--cream); color: var(--text); overflow-x: hidden; }
 
+  /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(248,245,239,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(138,158,123,0.2); transition: box-shadow 0.3s; }
   .nav-logo { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--dark); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
   .nav-logo span { color: var(--sage); }
@@ -26,6 +27,7 @@
   .nav-cta { font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 24px; border: 1px solid var(--sage); color: var(--sage); background: transparent; cursor: pointer; transition: all 0.3s; text-decoration: none; }
   .nav-cta:hover { background: var(--sage); color: var(--white); }
 
+  /* HERO */
   .page-hero { min-height: 50vh; background: var(--dark); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 140px 60px 80px; position: relative; overflow: hidden; }
   .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 40%, rgba(138,158,123,0.2) 0%, transparent 60%); }
   .page-hero-icon { position: absolute; font-size: 280px; opacity: 0.04; top: -40px; left: -40px; line-height: 1; pointer-events: none; }
@@ -33,43 +35,90 @@
   .page-hero-label::before, .page-hero-label::after { content: ''; display: block; width: 40px; height: 1px; background: var(--sage); }
   .page-hero h1 { font-family: var(--font-display); font-size: clamp(48px, 7vw, 80px); font-weight: 300; line-height: 1.05; color: var(--white); position: relative; }
   .page-hero h1 em { font-style: italic; color: var(--sage-light); }
-  .page-hero p { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.5); max-width: 500px; margin-top: 20px; position: relative; }
+  .page-hero p { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.5); max-width: 540px; margin-top: 20px; position: relative; }
 
-  .refs-container { max-width: 1100px; margin: 0 auto; padding: 80px 60px 100px; }
+  /* CONTAINER */
+  .refs-container { max-width: 1060px; margin: 0 auto; padding: 80px 60px 100px; }
 
-  .filter-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 60px; }
+  /* HARVARD NOTE BANNER */
+  .harvard-note {
+    background: var(--sage-pale); border-left: 4px solid var(--sage);
+    padding: 28px 32px; margin-bottom: 16px;
+  }
+  .harvard-note h4 { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--dark); margin-bottom: 10px; }
+  .harvard-note p { font-size: 13px; line-height: 1.8; color: var(--text); }
+  .harvard-note p + p { margin-top: 8px; }
+  .harvard-example {
+    background: var(--white); border: 1px solid var(--sage-light);
+    padding: 20px 24px; margin-top: 16px;
+  }
+  .harvard-example h5 { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; font-weight: 500; }
+  .harvard-example p { font-size: 13px; line-height: 1.8; color: var(--text); }
+  .harvard-example em { font-style: italic; }
+
+  /* FILTER BAR */
+  .filter-bar { display: flex; gap: 12px; flex-wrap: wrap; margin: 40px 0 56px; }
   .filter-btn { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 8px 20px; border: 1px solid var(--sage-light); color: var(--text); background: transparent; cursor: pointer; transition: all 0.3s; }
   .filter-btn:hover, .filter-btn.active { background: var(--sage); border-color: var(--sage); color: var(--white); }
 
+  /* CATEGORY */
   .refs-category { margin-bottom: 70px; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .refs-category.visible { opacity: 1; transform: translateY(0); }
-  .cat-header { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid rgba(138,158,123,0.3); }
+  .cat-header { display: flex; align-items: center; gap: 20px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 2px solid var(--sage-light); }
   .cat-icon { font-size: 24px; }
   .cat-title { font-family: var(--font-display); font-size: 28px; font-weight: 300; color: var(--dark); }
-  .cat-count { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); padding: 4px 12px; background: var(--sage-pale); margin-left: auto; }
+  .cat-count { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); padding: 4px 12px; background: var(--sage-pale); margin-left: auto; flex-shrink: 0; }
 
+  /* REFERENCE ITEM — Harvard style: full citation as one block */
   .ref-list { display: flex; flex-direction: column; gap: 0; }
-  .ref-item { display: grid; grid-template-columns: 48px 1fr auto; gap: 20px; align-items: start; padding: 24px 0; border-bottom: 1px solid rgba(138,158,123,0.12); transition: background 0.2s; }
-  .ref-item:hover { background: var(--sage-pale); margin: 0 -16px; padding: 24px 16px; border-radius: 0; }
-  .ref-num { font-family: var(--font-display); font-size: 20px; font-style: italic; color: var(--sage-light); line-height: 1.2; text-align: right; }
-  .ref-content {}
-  .ref-authors { font-size: 13px; font-weight: 500; color: var(--dark); margin-bottom: 4px; }
-  .ref-year { display: inline-block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--sage); margin-bottom: 6px; }
-  .ref-title { font-family: var(--font-display); font-size: 17px; font-style: italic; font-weight: 300; color: var(--dark); line-height: 1.3; margin-bottom: 4px; }
-  .ref-source { font-size: 12px; color: #9a8e82; }
-  .ref-source em { color: var(--brown); font-style: italic; }
-  .ref-link { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--sage); text-decoration: none; white-space: nowrap; padding: 6px 14px; border: 1px solid var(--sage-light); transition: all 0.3s; display: inline-block; align-self: center; }
-  .ref-link:hover { background: var(--sage); color: var(--white); border-color: var(--sage); }
-  .ref-type { display: inline-block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 10px; margin-top: 6px; }
+  .ref-item {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    gap: 20px;
+    align-items: start;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(138,158,123,0.15);
+    transition: background 0.2s, padding 0.2s;
+  }
+  .ref-item:hover { background: var(--sage-pale); padding: 22px 16px; margin: 0 -16px; }
+  .ref-num {
+    font-family: var(--font-display); font-size: 18px; font-style: italic;
+    color: var(--sage-light); line-height: 1.3; text-align: right; padding-top: 2px;
+  }
+
+  /* Harvard full citation — single paragraph with inline formatting */
+  .ref-harvard {
+    font-size: 13.5px;
+    line-height: 1.85;
+    color: var(--text);
+    /* Hanging indent for wrapped lines */
+    padding-left: 0;
+  }
+  .ref-harvard .h-author { font-weight: 600; color: var(--dark); }
+  .ref-harvard .h-year { color: var(--dark); }
+  .ref-harvard .h-title-book { font-style: italic; color: var(--dark); }
+  .ref-harvard .h-title-article { color: var(--dark); }
+  .ref-harvard .h-journal { font-style: italic; color: var(--brown); }
+  .ref-harvard .h-pub { color: #7a6e63; }
+  .ref-harvard .h-url { color: var(--sage); word-break: break-all; }
+  .ref-harvard .h-accessed { color: #9a8e82; font-size: 12px; }
+
+  /* Type badge */
+  .ref-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; padding-top: 4px; }
+  .ref-type { display: inline-block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; white-space: nowrap; }
   .ref-type.book { background: rgba(107,79,58,0.1); color: var(--brown); }
   .ref-type.journal { background: rgba(90,122,191,0.1); color: #5a7abf; }
   .ref-type.report { background: rgba(138,158,123,0.15); color: var(--sage); }
   .ref-type.web { background: rgba(212,136,74,0.1); color: #d4884a; }
+  .ref-link { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--sage); text-decoration: none; padding: 5px 12px; border: 1px solid var(--sage-light); transition: all 0.3s; white-space: nowrap; }
+  .ref-link:hover { background: var(--sage); color: var(--white); border-color: var(--sage); }
 
-  .apa-note { background: var(--sage-pale); border-left: 4px solid var(--sage); padding: 24px 28px; margin-bottom: 40px; }
-  .apa-note h4 { font-family: var(--font-display); font-size: 18px; font-weight: 400; color: var(--dark); margin-bottom: 8px; }
-  .apa-note p { font-size: 13px; line-height: 1.7; color: var(--text); }
+  /* SCROLL TOP */
+  .scroll-top { position: fixed; bottom: 40px; right: 40px; z-index: 50; width: 48px; height: 48px; background: var(--sage); color: var(--white); border: none; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(20px); transition: all 0.3s; }
+  .scroll-top.show { opacity: 1; transform: translateY(0); }
+  .scroll-top:hover { background: var(--dark); }
 
+  /* FOOTER */
   footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 60px; text-align: center; }
   .footer-nav { display: flex; gap: 32px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
   .footer-nav a { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; }
@@ -77,45 +126,52 @@
   .footer-logo { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--white); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; display: block; margin-bottom: 24px; }
   footer p { font-size: 13px; }
 
-  .scroll-top { position: fixed; bottom: 40px; right: 40px; z-index: 50; width: 48px; height: 48px; background: var(--sage); color: var(--white); border: none; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(20px); transition: all 0.3s; }
-  .scroll-top.show { opacity: 1; transform: translateY(0); }
-
+  /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 16px 24px; } .nav-links { display: none; }
     .refs-container { padding: 60px 24px; }
     .ref-item { grid-template-columns: 36px 1fr; }
-    .ref-link { display: none; }
+    .ref-meta { display: none; }
   }
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="index.html" class="nav-logo">ILLAM<span> TEA</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Blends</a></li>
-    <li><a href="about-us.html" class="active">About Us</a></li>
-    <li><a href="future.html">Future</a></li>
-    <li><a href="references.html">References</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <a href="index.html" class="nav-cta">Shop Now</a>
-</nav>
-
+  <nav id="mainNav">
+    <a href="index.html" class="nav-logo">ILLAM<span> TEA</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Our Teas</a></li>
+      <li><a href="about-us.html" class="active">About Us</a></li>
+      <li><a href="future.html">Future</a></li>
+      <li><a href="references.html">References</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="index.html" class="nav-cta">Shop Now</a>
+  </nav>
+<!-- HERO -->
 <div class="page-hero">
   <div class="page-hero-icon">📚</div>
-  <div class="page-hero-label">Academic Sources</div>
+  <div class="page-hero-label">Harvard Referencing</div>
   <h1><em>References</em></h1>
-  <p>All sources cited across the ILLAM TEA brand strategy, market research, and digital marketing documentation.</p>
+  <p>All sources cited across the Ilam Tea Nepal brand strategy, market research, Nepal origin study, and digital marketing documentation — formatted in Harvard style.</p>
 </div>
 
 <div class="refs-container">
 
-  <div class="apa-note">
-    <h4>Citation Format — APA 7th Edition</h4>
-    <p>All references below are formatted in APA 7th edition style as used throughout the ILLAM TEA strategy documentation. Sources span academic journals, industry reports, government publications and authoritative web sources.</p>
+  <!-- HARVARD FORMAT EXPLAINER -->
+  <div class="harvard-note">
+    <h4>Citation Format — Harvard Referencing Style</h4>
+    <p>All references below follow the <strong>Harvard referencing system</strong>. In-text citations use the author–date format, e.g. (Kotler and Keller, 2022). The reference list is organised by source category and ordered alphabetically within each section.</p>
+    <p>Harvard format varies slightly by source type. The general structure is: <strong>Author(s) Surname, Initial(s). (Year) <em>Title</em>. Edition (if applicable). Place of publication: Publisher.</strong></p>
+    <div class="harvard-example">
+      <h5>Format Examples</h5>
+      <p><strong>Book:</strong> Kotler, P. and Keller, K.L. (2022) <em>Marketing Management.</em> 16th edn. Harlow: Pearson Education.</p>
+      <p><strong>Journal:</strong> Kannan, P.K. and Li, H.A. (2017) 'Digital marketing: A framework, review and research agenda', <em>International Journal of Research in Marketing,</em> 34(1), pp. 22–45.</p>
+      <p><strong>Website:</strong> Nepal Tea &amp; Coffee Development Board (2023) <em>Nepal Tea Export Statistics &amp; Production Data Annual Report 2023.</em> Available at: https://www.ntcdb.gov.np (Accessed: 1 February 2025).</p>
+    </div>
   </div>
 
+  <!-- FILTER BAR -->
   <div class="filter-bar">
     <button class="filter-btn active" onclick="filterRefs('all', this)">All Sources</button>
     <button class="filter-btn" onclick="filterRefs('book', this)">Books</button>
@@ -124,7 +180,9 @@
     <button class="filter-btn" onclick="filterRefs('web', this)">Web Sources</button>
   </div>
 
-  <!-- MARKET RESEARCH -->
+  <!-- ══════════════════════════════════════════ -->
+  <!-- CATEGORY 1: MARKET RESEARCH               -->
+  <!-- ══════════════════════════════════════════ -->
   <div class="refs-category" id="cat-market">
     <div class="cat-header">
       <span class="cat-icon">📊</span>
@@ -132,76 +190,61 @@
       <span class="cat-count">6 sources</span>
     </div>
     <div class="ref-list">
+
       <div class="ref-item" data-type="report">
-        <div class="ref-num">01</div>
-        <div class="ref-content">
-          <div class="ref-authors">Mintel Group Ltd.</div>
-          <span class="ref-year">2024</span>
-          <div class="ref-title">Tea and Other Hot Drinks — UK Market Report 2024</div>
-          <div class="ref-source">Mintel Group Ltd. <em>UK Consumer Market Reports.</em></div>
-          <span class="ref-type report">Industry Report</span>
+        <div class="ref-num">1</div>
+        <div class="ref-harvard">
+          <span class="h-author">Euromonitor International</span> <span class="h-year">(2024)</span> <span class="h-title-book"><em>Hot Drinks in the United Kingdom: Country Report.</em></span> <span class="h-pub">London: Euromonitor International. Available via Passport Global Market Research Database.</span>
         </div>
-        <a href="#" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type report">Report</span><a href="#" class="ref-link">View</a></div>
       </div>
+
       <div class="ref-item" data-type="report">
-        <div class="ref-num">02</div>
-        <div class="ref-content">
-          <div class="ref-authors">Euromonitor International.</div>
-          <span class="ref-year">2024</span>
-          <div class="ref-title">Hot Drinks in the United Kingdom: Country Report</div>
-          <div class="ref-source">Euromonitor International. <em>Passport Global Market Research Database.</em></div>
-          <span class="ref-type report">Industry Report</span>
+        <div class="ref-num">2</div>
+        <div class="ref-harvard">
+          <span class="h-author">Grand View Research</span> <span class="h-year">(2023)</span> <span class="h-title-book"><em>Premium Tea Market Size, Share &amp; Trends Analysis Report, 2023–2030.</em></span> <span class="h-pub">San Francisco: Grand View Research.</span>
         </div>
-        <a href="#" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type report">Report</span><a href="#" class="ref-link">View</a></div>
       </div>
+
       <div class="ref-item" data-type="report">
-        <div class="ref-num">03</div>
-        <div class="ref-content">
-          <div class="ref-authors">Statista Research Department.</div>
-          <span class="ref-year">2024</span>
-          <div class="ref-title">Tea market in the United Kingdom (UK) — Statistics &amp; Facts</div>
-          <div class="ref-source">Statista. <em>Consumer Goods &amp; FMCG.</em> https://www.statista.com/topics/2387/tea-market-in-the-uk/</div>
-          <span class="ref-type web">Web Source</span>
+        <div class="ref-num">3</div>
+        <div class="ref-harvard">
+          <span class="h-author">Mintel Group Ltd</span> <span class="h-year">(2024)</span> <span class="h-title-book"><em>Tea and Other Hot Drinks — UK &amp; South Asian Origin Market Report 2024.</em></span> <span class="h-pub">London: Mintel Group Ltd.</span>
         </div>
-        <a href="https://www.statista.com" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type report">Report</span><a href="#" class="ref-link">View</a></div>
       </div>
-      <div class="ref-item" data-type="report">
-        <div class="ref-num">04</div>
-        <div class="ref-content">
-          <div class="ref-authors">Grand View Research.</div>
-          <span class="ref-year">2023</span>
-          <div class="ref-title">Premium Tea Market Size, Share &amp; Trends Analysis Report 2023–2030</div>
-          <div class="ref-source">Grand View Research. <em>Food &amp; Beverages Industry Reports.</em></div>
-          <span class="ref-type report">Industry Report</span>
+
+      <div class="ref-item" data-type="web">
+        <div class="ref-num">4</div>
+        <div class="ref-harvard">
+          <span class="h-author">Nepal Tea &amp; Coffee Development Board</span> <span class="h-year">(2023)</span> <span class="h-title-book"><em>Nepal Tea Export Statistics &amp; Production Data Annual Report 2023.</em></span> <span class="h-pub">Kathmandu: Nepal Tea &amp; Coffee Development Board.</span> Available at: <span class="h-url">https://www.ntcdb.gov.np</span> <span class="h-accessed">(Accessed: 1 February 2025).</span>
         </div>
-        <a href="#" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type web">Web</span><a href="https://www.ntcdb.gov.np" class="ref-link">View</a></div>
       </div>
-      <div class="ref-item" data-type="report">
-        <div class="ref-num">05</div>
-        <div class="ref-content">
-          <div class="ref-authors">UK Tea &amp; Infusions Association.</div>
-          <span class="ref-year">2023</span>
-          <div class="ref-title">Tea Statistics Report: UK Annual Consumption and Trends</div>
-          <div class="ref-source">UK Tea &amp; Infusions Association. <em>Annual Industry Statistics.</em> https://www.tea.co.uk</div>
-          <span class="ref-type web">Web Source</span>
+
+      <div class="ref-item" data-type="web">
+        <div class="ref-num">5</div>
+        <div class="ref-harvard">
+          <span class="h-author">Statista Research Department</span> <span class="h-year">(2024)</span> <span class="h-title-book"><em>Nepal Tea Exports and Global Speciality Market Statistics.</em></span> <span class="h-pub">Hamburg: Statista GmbH.</span> Available at: <span class="h-url">https://www.statista.com/topics/2387/tea-market-in-the-uk/</span> <span class="h-accessed">(Accessed: 14 January 2025).</span>
         </div>
-        <a href="https://www.tea.co.uk" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type web">Web</span><a href="https://www.statista.com" class="ref-link">View</a></div>
       </div>
+
       <div class="ref-item" data-type="journal">
-        <div class="ref-num">06</div>
-        <div class="ref-content">
-          <div class="ref-authors">Wiedmann, K.-P., Hennigs, N., &amp; Siebels, A.</div>
-          <span class="ref-year">2007</span>
-          <div class="ref-title">Measuring consumers' luxury value perception: A cross-cultural framework</div>
-          <div class="ref-source"><em>Academy of Marketing Science Review, 7</em>(7), 1–21.</div>
-          <span class="ref-type journal">Academic Journal</span>
+        <div class="ref-num">6</div>
+        <div class="ref-harvard">
+          <span class="h-author">Wiedmann, K.-P., Hennigs, N. and Siebels, A.</span> <span class="h-year">(2007)</span> '<span class="h-title-article">Measuring consumers' luxury value perception: A cross-cultural framework</span>', <span class="h-journal"><em>Academy of Marketing Science Review,</em></span> 7(7), pp. 1–21.
         </div>
-        <a href="#" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type journal">Journal</span><a href="#" class="ref-link">View</a></div>
       </div>
+
     </div>
   </div>
 
-  <!-- DIGITAL MARKETING -->
+  <!-- ══════════════════════════════════════════ -->
+  <!-- CATEGORY 2: DIGITAL MARKETING             -->
+  <!-- ══════════════════════════════════════════ -->
   <div class="refs-category" id="cat-digital">
     <div class="cat-header">
       <span class="cat-icon">💻</span>
@@ -209,87 +252,69 @@
       <span class="cat-count">7 sources</span>
     </div>
     <div class="ref-list">
+
       <div class="ref-item" data-type="book">
-        <div class="ref-num">07</div>
-        <div class="ref-content">
-          <div class="ref-authors">Chaffey, D., &amp; Ellis-Chadwick, F.</div>
-          <span class="ref-year">2022</span>
-          <div class="ref-title">Digital Marketing: Strategy, Implementation and Practice (8th ed.)</div>
-          <div class="ref-source">Pearson Education Limited.</div>
-          <span class="ref-type book">Book</span>
+        <div class="ref-num">7</div>
+        <div class="ref-harvard">
+          <span class="h-author">Chaffey, D. and Ellis-Chadwick, F.</span> <span class="h-year">(2022)</span> <span class="h-title-book"><em>Digital Marketing: Strategy, Implementation and Practice.</em></span> 8th edn. <span class="h-pub">Harlow: Pearson Education Limited.</span>
         </div>
-        <a href="#" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type book">Book</span><a href="#" class="ref-link">View</a></div>
       </div>
-      <div class="ref-item" data-type="book">
-        <div class="ref-num">08</div>
-        <div class="ref-content">
-          <div class="ref-authors">Ryan, D.</div>
-          <span class="ref-year">2021</span>
-          <div class="ref-title">Understanding Digital Marketing: Marketing Strategies for Engaging the Digital Generation (5th ed.)</div>
-          <div class="ref-source">Kogan Page Limited.</div>
-          <span class="ref-type book">Book</span>
+
+      <div class="ref-item" data-type="web">
+        <div class="ref-num">8</div>
+        <div class="ref-harvard">
+          <span class="h-author">Google LLC</span> <span class="h-year">(2024)</span> <span class="h-title-book"><em>Think with Google: Consumer Insights &amp; Marketing Research.</em></span> <span class="h-pub">Mountain View: Google LLC.</span> Available at: <span class="h-url">https://www.thinkwithgoogle.com</span> <span class="h-accessed">(Accessed: 20 January 2025).</span>
         </div>
-        <a href="#" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type web">Web</span><a href="https://www.thinkwithgoogle.com" class="ref-link">View</a></div>
       </div>
-      <div class="ref-item" data-type="book">
-        <div class="ref-num">09</div>
-        <div class="ref-content">
-          <div class="ref-authors">Kingsnorth, S.</div>
-          <span class="ref-year">2022</span>
-          <div class="ref-title">Digital Marketing Strategy: An Integrated Approach to Online Marketing (3rd ed.)</div>
-          <div class="ref-source">Kogan Page Limited.</div>
-          <span class="ref-type book">Book</span>
+
+      <div class="ref-item" data-type="report">
+        <div class="ref-num">9</div>
+        <div class="ref-harvard">
+          <span class="h-author">HubSpot</span> <span class="h-year">(2024)</span> <span class="h-title-book"><em>State of Marketing Report 2024.</em></span> <span class="h-pub">Cambridge, MA: HubSpot Inc.</span> Available at: <span class="h-url">https://www.hubspot.com/state-of-marketing</span> <span class="h-accessed">(Accessed: 5 February 2025).</span>
         </div>
-        <a href="#" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type report">Report</span><a href="https://www.hubspot.com" class="ref-link">View</a></div>
       </div>
+
       <div class="ref-item" data-type="journal">
         <div class="ref-num">10</div>
-        <div class="ref-content">
-          <div class="ref-authors">Kannan, P. K., &amp; Li, H. A.</div>
-          <span class="ref-year">2017</span>
-          <div class="ref-title">Digital marketing: A framework, review and research agenda</div>
-          <div class="ref-source"><em>International Journal of Research in Marketing, 34</em>(1), 22–45. https://doi.org/10.1016/j.ijresmar.2016.11.006</div>
-          <span class="ref-type journal">Academic Journal</span>
+        <div class="ref-harvard">
+          <span class="h-author">Kannan, P.K. and Li, H.A.</span> <span class="h-year">(2017)</span> '<span class="h-title-article">Digital marketing: A framework, review and research agenda</span>', <span class="h-journal"><em>International Journal of Research in Marketing,</em></span> 34(1), pp. 22–45. doi: <span class="h-url">10.1016/j.ijresmar.2016.11.006</span>
         </div>
-        <a href="#" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type journal">Journal</span><a href="#" class="ref-link">View</a></div>
       </div>
-      <div class="ref-item" data-type="report">
+
+      <div class="ref-item" data-type="book">
         <div class="ref-num">11</div>
-        <div class="ref-content">
-          <div class="ref-authors">HubSpot.</div>
-          <span class="ref-year">2024</span>
-          <div class="ref-title">State of Marketing Report 2024</div>
-          <div class="ref-source">HubSpot Inc. https://www.hubspot.com/state-of-marketing</div>
-          <span class="ref-type report">Industry Report</span>
+        <div class="ref-harvard">
+          <span class="h-author">Kingsnorth, S.</span> <span class="h-year">(2022)</span> <span class="h-title-book"><em>Digital Marketing Strategy: An Integrated Approach to Online Marketing.</em></span> 3rd edn. <span class="h-pub">London: Kogan Page Limited.</span>
         </div>
-        <a href="https://www.hubspot.com" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type book">Book</span><a href="#" class="ref-link">View</a></div>
       </div>
-      <div class="ref-item" data-type="web">
-        <div class="ref-num">12</div>
-        <div class="ref-content">
-          <div class="ref-authors">Google LLC.</div>
-          <span class="ref-year">2024</span>
-          <div class="ref-title">Think with Google: Consumer Insights &amp; Marketing Research</div>
-          <div class="ref-source">Google LLC. https://www.thinkwithgoogle.com</div>
-          <span class="ref-type web">Web Source</span>
-        </div>
-        <a href="https://www.thinkwithgoogle.com" class="ref-link">View Source</a>
-      </div>
+
       <div class="ref-item" data-type="journal">
-        <div class="ref-num">13</div>
-        <div class="ref-content">
-          <div class="ref-authors">Leeflang, P. S. H., Verhoef, P. C., Dahlström, P., &amp; Freundt, T.</div>
-          <span class="ref-year">2014</span>
-          <div class="ref-title">Challenges and solutions for marketing in a digital era</div>
-          <div class="ref-source"><em>European Management Journal, 32</em>(1), 1–12. https://doi.org/10.1016/j.emj.2013.12.001</div>
-          <span class="ref-type journal">Academic Journal</span>
+        <div class="ref-num">12</div>
+        <div class="ref-harvard">
+          <span class="h-author">Leeflang, P.S.H., Verhoef, P.C., Dahlström, P. and Freundt, T.</span> <span class="h-year">(2014)</span> '<span class="h-title-article">Challenges and solutions for marketing in a digital era</span>', <span class="h-journal"><em>European Management Journal,</em></span> 32(1), pp. 1–12. doi: <span class="h-url">10.1016/j.emj.2013.12.001</span>
         </div>
-        <a href="#" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type journal">Journal</span><a href="#" class="ref-link">View</a></div>
       </div>
+
+      <div class="ref-item" data-type="book">
+        <div class="ref-num">13</div>
+        <div class="ref-harvard">
+          <span class="h-author">Ryan, D.</span> <span class="h-year">(2021)</span> <span class="h-title-book"><em>Understanding Digital Marketing: Marketing Strategies for Engaging the Digital Generation.</em></span> 5th edn. <span class="h-pub">London: Kogan Page Limited.</span>
+        </div>
+        <div class="ref-meta"><span class="ref-type book">Book</span><a href="#" class="ref-link">View</a></div>
+      </div>
+
     </div>
   </div>
 
-  <!-- CONSUMER BEHAVIOUR -->
+  <!-- ══════════════════════════════════════════ -->
+  <!-- CATEGORY 3: CONSUMER BEHAVIOUR            -->
+  <!-- ══════════════════════════════════════════ -->
   <div class="refs-category" id="cat-consumer">
     <div class="cat-header">
       <span class="cat-icon">🧠</span>
@@ -297,65 +322,53 @@
       <span class="cat-count">5 sources</span>
     </div>
     <div class="ref-list">
-      <div class="ref-item" data-type="book">
-        <div class="ref-num">14</div>
-        <div class="ref-content">
-          <div class="ref-authors">Solomon, M. R.</div>
-          <span class="ref-year">2020</span>
-          <div class="ref-title">Consumer Behaviour: Buying, Having, and Being (13th ed.)</div>
-          <div class="ref-source">Pearson Education Limited.</div>
-          <span class="ref-type book">Book</span>
-        </div>
-        <a href="#" class="ref-link">View Source</a>
-      </div>
-      <div class="ref-item" data-type="book">
-        <div class="ref-num">15</div>
-        <div class="ref-content">
-          <div class="ref-authors">Kotler, P., &amp; Keller, K. L.</div>
-          <span class="ref-year">2022</span>
-          <div class="ref-title">Marketing Management (16th ed.)</div>
-          <div class="ref-source">Pearson Education Limited.</div>
-          <span class="ref-type book">Book</span>
-        </div>
-        <a href="#" class="ref-link">View Source</a>
-      </div>
-      <div class="ref-item" data-type="journal">
-        <div class="ref-num">16</div>
-        <div class="ref-content">
-          <div class="ref-authors">Kapferer, J.-N., &amp; Bastien, V.</div>
-          <span class="ref-year">2012</span>
-          <div class="ref-title">The Luxury Strategy: Break the Rules of Marketing to Build Luxury Brands (2nd ed.)</div>
-          <div class="ref-source">Kogan Page Limited.</div>
-          <span class="ref-type book">Book</span>
-        </div>
-        <a href="#" class="ref-link">View Source</a>
-      </div>
+
       <div class="ref-item" data-type="report">
-        <div class="ref-num">17</div>
-        <div class="ref-content">
-          <div class="ref-authors">Deloitte.</div>
-          <span class="ref-year">2024</span>
-          <div class="ref-title">Consumer Signals: UK Consumer Spending &amp; Sentiment Tracker Q1 2024</div>
-          <div class="ref-source">Deloitte LLP. https://www.deloitte.com/uk/en/pages/consumer-business</div>
-          <span class="ref-type report">Industry Report</span>
+        <div class="ref-num">14</div>
+        <div class="ref-harvard">
+          <span class="h-author">Deloitte</span> <span class="h-year">(2024)</span> <span class="h-title-book"><em>Consumer Signals: UK Consumer Spending &amp; Sentiment Tracker Q1 2024.</em></span> <span class="h-pub">London: Deloitte LLP.</span> Available at: <span class="h-url">https://www.deloitte.com/uk/en/pages/consumer-business</span> <span class="h-accessed">(Accessed: 10 January 2025).</span>
         </div>
-        <a href="https://www.deloitte.com" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type report">Report</span><a href="https://www.deloitte.com" class="ref-link">View</a></div>
       </div>
+
       <div class="ref-item" data-type="journal">
-        <div class="ref-num">18</div>
-        <div class="ref-content">
-          <div class="ref-authors">Holbrook, M. B., &amp; Hirschman, E. C.</div>
-          <span class="ref-year">1982</span>
-          <div class="ref-title">The experiential aspects of consumption: Consumer fantasies, feelings, and fun</div>
-          <div class="ref-source"><em>Journal of Consumer Research, 9</em>(2), 132–140. https://doi.org/10.1086/208906</div>
-          <span class="ref-type journal">Academic Journal</span>
+        <div class="ref-num">15</div>
+        <div class="ref-harvard">
+          <span class="h-author">Holbrook, M.B. and Hirschman, E.C.</span> <span class="h-year">(1982)</span> '<span class="h-title-article">The experiential aspects of consumption: Consumer fantasies, feelings, and fun</span>', <span class="h-journal"><em>Journal of Consumer Research,</em></span> 9(2), pp. 132–140. doi: <span class="h-url">10.1086/208906</span>
         </div>
-        <a href="#" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type journal">Journal</span><a href="#" class="ref-link">View</a></div>
       </div>
+
+      <div class="ref-item" data-type="book">
+        <div class="ref-num">16</div>
+        <div class="ref-harvard">
+          <span class="h-author">Kapferer, J.-N. and Bastien, V.</span> <span class="h-year">(2012)</span> <span class="h-title-book"><em>The Luxury Strategy: Break the Rules of Marketing to Build Luxury Brands.</em></span> 2nd edn. <span class="h-pub">London: Kogan Page Limited.</span>
+        </div>
+        <div class="ref-meta"><span class="ref-type book">Book</span><a href="#" class="ref-link">View</a></div>
+      </div>
+
+      <div class="ref-item" data-type="book">
+        <div class="ref-num">17</div>
+        <div class="ref-harvard">
+          <span class="h-author">Kotler, P. and Keller, K.L.</span> <span class="h-year">(2022)</span> <span class="h-title-book"><em>Marketing Management.</em></span> 16th edn. <span class="h-pub">Harlow: Pearson Education Limited.</span>
+        </div>
+        <div class="ref-meta"><span class="ref-type book">Book</span><a href="#" class="ref-link">View</a></div>
+      </div>
+
+      <div class="ref-item" data-type="book">
+        <div class="ref-num">18</div>
+        <div class="ref-harvard">
+          <span class="h-author">Solomon, M.R.</span> <span class="h-year">(2020)</span> <span class="h-title-book"><em>Consumer Behaviour: Buying, Having, and Being.</em></span> 13th edn. <span class="h-pub">Harlow: Pearson Education Limited.</span>
+        </div>
+        <div class="ref-meta"><span class="ref-type book">Book</span><a href="#" class="ref-link">View</a></div>
+      </div>
+
     </div>
   </div>
 
-  <!-- SUSTAINABILITY -->
+  <!-- ══════════════════════════════════════════ -->
+  <!-- CATEGORY 4: SUSTAINABILITY                -->
+  <!-- ══════════════════════════════════════════ -->
   <div class="refs-category" id="cat-sustainability">
     <div class="cat-header">
       <span class="cat-icon">🌍</span>
@@ -363,54 +376,45 @@
       <span class="cat-count">4 sources</span>
     </div>
     <div class="ref-list">
-      <div class="ref-item" data-type="report">
-        <div class="ref-num">19</div>
-        <div class="ref-content">
-          <div class="ref-authors">Nielsen IQ.</div>
-          <span class="ref-year">2023</span>
-          <div class="ref-title">Sustainability Imperative: New Data Reveals Consumer Sentiment</div>
-          <div class="ref-source">NielsenIQ Global. https://www.nielseniq.com/global/en/insights/sustainability</div>
-          <span class="ref-type report">Industry Report</span>
-        </div>
-        <a href="https://www.nielseniq.com" class="ref-link">View Source</a>
-      </div>
-      <div class="ref-item" data-type="book">
-        <div class="ref-num">20</div>
-        <div class="ref-content">
-          <div class="ref-authors">Porter, M. E., &amp; Kramer, M. R.</div>
-          <span class="ref-year">2011</span>
-          <div class="ref-title">Creating shared value: How to reinvent capitalism — and unleash a wave of innovation and growth</div>
-          <div class="ref-source"><em>Harvard Business Review, 89</em>(1/2), 62–77.</div>
-          <span class="ref-type journal">Academic Journal</span>
-        </div>
-        <a href="#" class="ref-link">View Source</a>
-      </div>
+
       <div class="ref-item" data-type="web">
-        <div class="ref-num">21</div>
-        <div class="ref-content">
-          <div class="ref-authors">Rainforest Alliance.</div>
-          <span class="ref-year">2024</span>
-          <div class="ref-title">Sustainable Agriculture Standard: Tea &amp; Beverage Crops</div>
-          <div class="ref-source">Rainforest Alliance. https://www.rainforest-alliance.org/standards</div>
-          <span class="ref-type web">Web Source</span>
+        <div class="ref-num">19</div>
+        <div class="ref-harvard">
+          <span class="h-author">Ethical Trading Initiative</span> <span class="h-year">(2023)</span> <span class="h-title-book"><em>ETI Base Code: Guidance for Businesses on Ethical Supply Chain Management.</em></span> <span class="h-pub">London: Ethical Trading Initiative.</span> Available at: <span class="h-url">https://www.ethicaltrade.org/eti-base-code</span> <span class="h-accessed">(Accessed: 3 February 2025).</span>
         </div>
-        <a href="https://www.rainforest-alliance.org" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type web">Web</span><a href="https://www.ethicaltrade.org" class="ref-link">View</a></div>
       </div>
+
       <div class="ref-item" data-type="report">
-        <div class="ref-num">22</div>
-        <div class="ref-content">
-          <div class="ref-authors">Ethical Trading Initiative.</div>
-          <span class="ref-year">2023</span>
-          <div class="ref-title">ETI Base Code: Guidance for Businesses on Ethical Supply Chain Management</div>
-          <div class="ref-source">Ethical Trading Initiative. https://www.ethicaltrade.org/eti-base-code</div>
-          <span class="ref-type web">Web Source</span>
+        <div class="ref-num">20</div>
+        <div class="ref-harvard">
+          <span class="h-author">Nielsen IQ</span> <span class="h-year">(2023)</span> <span class="h-title-book"><em>Sustainability Imperative: New Data Reveals Consumer Sentiment.</em></span> <span class="h-pub">New York: NielsenIQ Global.</span> Available at: <span class="h-url">https://www.nielseniq.com/global/en/insights/sustainability</span> <span class="h-accessed">(Accessed: 22 January 2025).</span>
         </div>
-        <a href="https://www.ethicaltrade.org" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type report">Report</span><a href="https://www.nielseniq.com" class="ref-link">View</a></div>
       </div>
+
+      <div class="ref-item" data-type="journal">
+        <div class="ref-num">21</div>
+        <div class="ref-harvard">
+          <span class="h-author">Porter, M.E. and Kramer, M.R.</span> <span class="h-year">(2011)</span> '<span class="h-title-article">Creating shared value: How to reinvent capitalism — and unleash a wave of innovation and growth</span>', <span class="h-journal"><em>Harvard Business Review,</em></span> 89(1/2), pp. 62–77.
+        </div>
+        <div class="ref-meta"><span class="ref-type journal">Journal</span><a href="#" class="ref-link">View</a></div>
+      </div>
+
+      <div class="ref-item" data-type="web">
+        <div class="ref-num">22</div>
+        <div class="ref-harvard">
+          <span class="h-author">Rainforest Alliance</span> <span class="h-year">(2024)</span> <span class="h-title-book"><em>Sustainable Agriculture Standard: Tea &amp; Beverage Crops.</em></span> <span class="h-pub">New York: Rainforest Alliance.</span> Available at: <span class="h-url">https://www.rainforest-alliance.org/standards</span> <span class="h-accessed">(Accessed: 18 January 2025).</span>
+        </div>
+        <div class="ref-meta"><span class="ref-type web">Web</span><a href="https://www.rainforest-alliance.org" class="ref-link">View</a></div>
+      </div>
+
     </div>
   </div>
 
-  <!-- E-COMMERCE & DTC -->
+  <!-- ══════════════════════════════════════════ -->
+  <!-- CATEGORY 5: E-COMMERCE & DTC              -->
+  <!-- ══════════════════════════════════════════ -->
   <div class="refs-category" id="cat-ecommerce">
     <div class="cat-header">
       <span class="cat-icon">🛒</span>
@@ -418,65 +422,54 @@
       <span class="cat-count">4 sources</span>
     </div>
     <div class="ref-list">
+
       <div class="ref-item" data-type="report">
         <div class="ref-num">23</div>
-        <div class="ref-content">
-          <div class="ref-authors">IMRG &amp; Capgemini.</div>
-          <span class="ref-year">2024</span>
-          <div class="ref-title">IMRG Capgemini Online Retail Index: Annual Benchmarking Report 2024</div>
-          <div class="ref-source">IMRG — The UK's eRetail Association. https://www.imrg.org</div>
-          <span class="ref-type report">Industry Report</span>
+        <div class="ref-harvard">
+          <span class="h-author">IMRG and Capgemini</span> <span class="h-year">(2024)</span> <span class="h-title-book"><em>IMRG Capgemini Online Retail Index: Annual Benchmarking Report 2024.</em></span> <span class="h-pub">London: IMRG — The UK's eRetail Association.</span> Available at: <span class="h-url">https://www.imrg.org</span> <span class="h-accessed">(Accessed: 9 February 2025).</span>
         </div>
-        <a href="https://www.imrg.org" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type report">Report</span><a href="https://www.imrg.org" class="ref-link">View</a></div>
       </div>
+
       <div class="ref-item" data-type="report">
         <div class="ref-num">24</div>
-        <div class="ref-content">
-          <div class="ref-authors">McKinsey &amp; Company.</div>
-          <span class="ref-year">2023</span>
-          <div class="ref-title">Thinking inside the subscription box: New research on e-commerce consumers</div>
-          <div class="ref-source">McKinsey &amp; Company. <em>Consumer Packaged Goods Insights.</em> https://www.mckinsey.com</div>
-          <span class="ref-type report">Industry Report</span>
+        <div class="ref-harvard">
+          <span class="h-author">McKinsey &amp; Company</span> <span class="h-year">(2023)</span> '<span class="h-title-article">Thinking inside the subscription box: New research on e-commerce consumers</span>', <span class="h-journal"><em>Consumer Packaged Goods Insights.</em></span> <span class="h-pub">New York: McKinsey &amp; Company.</span> Available at: <span class="h-url">https://www.mckinsey.com</span> <span class="h-accessed">(Accessed: 12 January 2025).</span>
         </div>
-        <a href="https://www.mckinsey.com" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type report">Report</span><a href="https://www.mckinsey.com" class="ref-link">View</a></div>
       </div>
-      <div class="ref-item" data-type="journal">
+
+      <div class="ref-item" data-type="book">
         <div class="ref-num">25</div>
-        <div class="ref-content">
-          <div class="ref-authors">Palmatier, R. W., Sivadas, E., Stern, L. W., &amp; El-Ansary, A. I.</div>
-          <span class="ref-year">2020</span>
-          <div class="ref-title">Marketing Channel Strategy: An Omni-Channel Approach (9th ed.)</div>
-          <div class="ref-source">Routledge.</div>
-          <span class="ref-type book">Book</span>
+        <div class="ref-harvard">
+          <span class="h-author">Palmatier, R.W., Sivadas, E., Stern, L.W. and El-Ansary, A.I.</span> <span class="h-year">(2020)</span> <span class="h-title-book"><em>Marketing Channel Strategy: An Omni-Channel Approach.</em></span> 9th edn. <span class="h-pub">Abingdon: Routledge.</span>
         </div>
-        <a href="#" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type book">Book</span><a href="#" class="ref-link">View</a></div>
       </div>
+
       <div class="ref-item" data-type="web">
         <div class="ref-num">26</div>
-        <div class="ref-content">
-          <div class="ref-authors">Shopify Inc.</div>
-          <span class="ref-year">2024</span>
-          <div class="ref-title">Future of Commerce Report 2024: Trends Shaping Retail &amp; E-Commerce</div>
-          <div class="ref-source">Shopify Inc. https://www.shopify.com/research/future-of-commerce</div>
-          <span class="ref-type web">Web Source</span>
+        <div class="ref-harvard">
+          <span class="h-author">Shopify Inc.</span> <span class="h-year">(2024)</span> <span class="h-title-book"><em>Future of Commerce Report 2024: Trends Shaping Retail &amp; E-Commerce.</em></span> <span class="h-pub">Ottawa: Shopify Inc.</span> Available at: <span class="h-url">https://www.shopify.com/research/future-of-commerce</span> <span class="h-accessed">(Accessed: 17 January 2025).</span>
         </div>
-        <a href="https://www.shopify.com" class="ref-link">View Source</a>
+        <div class="ref-meta"><span class="ref-type web">Web</span><a href="https://www.shopify.com" class="ref-link">View</a></div>
       </div>
+
     </div>
   </div>
 
-</div>
+</div><!-- /refs-container -->
 
 <footer>
-  <a href="index.html" class="footer-logo">Tea<span style="color:var(--sage)">Leaf</span></a>
+  <a href="tea-website.html" class="footer-logo">Ilam<span style="color:var(--sage)"> Tea</span></a>
   <div class="footer-nav">
-    <a href="index.html">Home</a>
+    <a href="tea-website.html">Home</a>
     <a href="about-us.html">About Us</a>
     <a href="future.html">Future Strategy</a>
     <a href="references.html">References</a>
     <a href="contact.html">Contact Us</a>
   </div>
-  <p>© 2025 ILLAM TEA. All rights reserved.</p>
+  <p>© 2025 Ilam Tea Nepal. All rights reserved.</p>
 </footer>
 
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
