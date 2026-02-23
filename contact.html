@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — ILLAM TEA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sage: #8a9e7b; --sage-light: #c8d5bc; --sage-pale: #eef2ea;
+    --cream: #f8f5ef; --brown: #6b4f3a; --brown-light: #c4a882;
+    --dark: #2c2416; --text: #4a3f32; --white: #ffffff;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Jost', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(248,245,239,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(138,158,123,0.2); transition: box-shadow 0.3s; }
+  .nav-logo { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--dark); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+  .nav-logo span { color: var(--sage); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--sage); }
+  .nav-cta { font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 24px; border: 1px solid var(--sage); color: var(--sage); background: transparent; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+  .nav-cta:hover { background: var(--sage); color: var(--white); }
+
+  /* HERO */
+  .page-hero { min-height: 55vh; background: var(--dark); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 140px 60px 80px; position: relative; overflow: hidden; }
+  .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 50%, rgba(138,158,123,0.22) 0%, transparent 60%), radial-gradient(ellipse at 20% 30%, rgba(196,168,130,0.12) 0%, transparent 50%); }
+  .page-hero-icon { position: absolute; font-size: 300px; opacity: 0.04; bottom: -80px; right: -60px; line-height: 1; pointer-events: none; animation: float 10s ease-in-out infinite; }
+  @keyframes float { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-18px) rotate(4deg); } }
+  .page-hero-label { font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--sage-light); margin-bottom: 20px; position: relative; display: flex; align-items: center; gap: 16px; }
+  .page-hero-label::before, .page-hero-label::after { content: ''; display: block; width: 40px; height: 1px; background: var(--sage); }
+  .page-hero h1 { font-family: var(--font-display); font-size: clamp(48px, 7vw, 82px); font-weight: 300; line-height: 1.05; color: var(--white); position: relative; }
+  .page-hero h1 em { font-style: italic; color: var(--sage-light); }
+  .page-hero p { font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.55); max-width: 520px; margin-top: 20px; position: relative; }
+
+  /* CONTACT INTRO */
+  .contact-wrap { max-width: 1200px; margin: 0 auto; padding: 0 60px 100px; }
+
+  .contact-info-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 0; border-bottom: 1px solid rgba(138,158,123,0.2); }
+  .contact-info-item { padding: 48px 40px; border-right: 1px solid rgba(138,158,123,0.2); text-align: center; transition: background 0.3s; }
+  .contact-info-item:last-child { border-right: none; }
+  .contact-info-item:hover { background: var(--sage-pale); }
+  .ci-icon { font-size: 32px; margin-bottom: 16px; }
+  .ci-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--sage); font-weight: 500; margin-bottom: 8px; }
+  .ci-value { font-family: var(--font-display); font-size: 17px; font-weight: 300; color: var(--dark); line-height: 1.4; }
+  .ci-sub { font-size: 12px; color: #9a8e82; margin-top: 4px; }
+
+  /* MAIN GRID */
+  .contact-main { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding: 80px 0; align-items: start; }
+
+  /* FORM */
+  .form-header { margin-bottom: 40px; }
+  .form-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sage); margin-bottom: 8px; }
+  .form-title { font-family: var(--font-display); font-size: clamp(36px, 4vw, 52px); font-weight: 300; color: var(--dark); line-height: 1.1; }
+  .form-title em { font-style: italic; color: var(--sage); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 0; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-group { display: flex; flex-direction: column; margin-bottom: 24px; }
+  .form-group label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text); margin-bottom: 8px; font-weight: 500; }
+  .form-group input, .form-group textarea, .form-group select {
+    padding: 14px 16px; background: var(--white); border: 1px solid rgba(138,158,123,0.3);
+    border-radius: 0; font-family: var(--font-body); font-size: 13px; color: var(--dark);
+    outline: none; transition: border-color 0.3s; resize: none;
+    appearance: none;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--sage); }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: #c0b8b0; }
+  .form-group textarea { min-height: 140px; line-height: 1.6; }
+  .form-group select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a9e7b' fill='none' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+  .form-check { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 28px; }
+  .form-check input[type="checkbox"] { width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0; accent-color: var(--sage); cursor: pointer; }
+  .form-check label { font-size: 12px; line-height: 1.6; color: #7a6e63; cursor: pointer; }
+  .form-check label a { color: var(--sage); }
+  .submit-btn { padding: 16px 48px; background: var(--sage); color: var(--white); border: none; font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; align-self: flex-start; }
+  .submit-btn:hover { background: var(--dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(44,36,22,0.2); }
+  .form-success { display: none; padding: 24px 28px; background: var(--sage-pale); border-left: 4px solid var(--sage); margin-top: 20px; }
+  .form-success h4 { font-family: var(--font-display); font-size: 20px; font-weight: 400; color: var(--dark); margin-bottom: 6px; }
+  .form-success p { font-size: 13px; color: var(--text); }
+
+  /* SIDE PANEL */
+  .contact-side { display: flex; flex-direction: column; gap: 32px; }
+  .side-card { padding: 36px 32px; background: var(--white); border-top: 3px solid var(--sage-pale); transition: border-color 0.3s; }
+  .side-card:hover { border-top-color: var(--sage); }
+  .side-card h4 { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--dark); margin-bottom: 12px; }
+  .side-card p { font-size: 13px; line-height: 1.7; color: #7a6e63; }
+  .side-card-link { display: inline-block; margin-top: 14px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid var(--sage-light); transition: border-color 0.3s; }
+  .side-card-link:hover { border-bottom-color: var(--sage); }
+  .hours-table { width: 100%; margin-top: 16px; }
+  .hours-table tr { border-bottom: 1px solid rgba(138,158,123,0.15); }
+  .hours-table td { padding: 10px 0; font-size: 12px; }
+  .hours-table td:last-child { text-align: right; color: var(--sage); font-weight: 500; }
+  .social-links { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+  .social-link { display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); text-decoration: none; padding: 8px 16px; border: 1px solid rgba(138,158,123,0.3); transition: all 0.3s; }
+  .social-link:hover { background: var(--sage); color: var(--white); border-color: var(--sage); }
+  .social-icon { font-size: 16px; }
+
+  /* MAP PLACEHOLDER */
+  .map-section { background: var(--dark); padding: 80px 0 0; }
+  .map-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+  .map-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
+  .map-title { font-family: var(--font-display); font-size: 40px; font-weight: 300; color: var(--white); }
+  .map-title em { font-style: italic; color: var(--sage-light); }
+  .map-placeholder {
+    width: 100%; height: 420px;
+    background: linear-gradient(135deg, #1a1209 0%, #2c2416 40%, #1e2d1a 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .map-grid { position: absolute; inset: 0; opacity: 0.12; background-image: linear-gradient(rgba(138,158,123,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(138,158,123,0.4) 1px, transparent 1px); background-size: 60px 60px; }
+  .map-pin { text-align: center; position: relative; z-index: 1; }
+  .map-pin-icon { font-size: 52px; display: block; margin-bottom: 16px; filter: drop-shadow(0 4px 16px rgba(138,158,123,0.5)); }
+  .map-pin-label { font-family: var(--font-display); font-size: 22px; font-style: italic; color: var(--white); }
+  .map-pin-addr { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 6px; letter-spacing: 1px; }
+  .offices-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .office-card { padding: 40px; border-right: 1px solid rgba(255,255,255,0.08); }
+  .office-card:last-child { border-right: none; }
+  .office-city { font-family: var(--font-display); font-size: 26px; font-weight: 300; color: var(--white); margin-bottom: 6px; }
+  .office-type { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--sage-light); margin-bottom: 16px; }
+  .office-addr { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.55); }
+
+  /* FAQ */
+  .faq-section { padding: 100px 0; }
+  .faq-inner { max-width: 800px; margin: 0 auto; padding: 0 60px; }
+  .faq-header { text-align: center; margin-bottom: 60px; }
+  .faq-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+  .faq-title { font-family: var(--font-display); font-size: 46px; font-weight: 300; color: var(--dark); }
+  .faq-title em { font-style: italic; color: var(--sage); }
+  .faq-list { display: flex; flex-direction: column; gap: 0; }
+  .faq-item { border-bottom: 1px solid rgba(138,158,123,0.2); }
+  .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; cursor: pointer; }
+  .faq-question h4 { font-family: var(--font-display); font-size: 20px; font-weight: 400; color: var(--dark); padding-right: 24px; }
+  .faq-icon { width: 28px; height: 28px; border: 1px solid var(--sage-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--sage); flex-shrink: 0; transition: all 0.3s; }
+  .faq-answer { font-size: 13px; line-height: 1.8; color: #7a6e63; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+  .faq-answer.open { max-height: 200px; padding-bottom: 24px; }
+  .faq-item.active .faq-icon { background: var(--sage); border-color: var(--sage); color: var(--white); transform: rotate(45deg); }
+
+  footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 60px; text-align: center; }
+  .footer-nav { display: flex; gap: 32px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+  .footer-nav a { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; }
+  .footer-nav a:hover { color: var(--sage-light); }
+  .footer-logo { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--white); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; display: block; margin-bottom: 24px; }
+  footer p { font-size: 13px; }
+  .scroll-top { position: fixed; bottom: 40px; right: 40px; z-index: 50; width: 48px; height: 48px; background: var(--sage); color: var(--white); border: none; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(20px); transition: all 0.3s; }
+  .scroll-top.show { opacity: 1; transform: translateY(0); }
+
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; } .nav-links { display: none; }
+    .contact-info-row { grid-template-columns: 1fr 1fr; }
+    .contact-main { grid-template-columns: 1fr; gap: 40px; }
+    .contact-wrap, .map-inner, .faq-inner { padding: 0 24px; }
+    .contact-wrap { padding-bottom: 70px; }
+    .form-row { grid-template-columns: 1fr; }
+    .offices-row { grid-template-columns: 1fr; }
+    .map-placeholder { height: 280px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">ILLAM<span> TEA</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Blends</a></li>
+    <li><a href="about-us.html">About Us</a></li>
+    <li><a href="future.html">Future</a></li>
+    <li><a href="references.html">References</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a href="index.html" class="nav-cta">Shop Now</a>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-icon">✉️</div>
+  <div class="page-hero-label">Get In Touch</div>
+  <h1>Contact <em>Us</em></h1>
+  <p>We'd love to hear from you — whether it's a question about our teas, a partnership idea, or just to say hello over a cup.</p>
+</div>
+
+<!-- CONTACT INFO STRIP -->
+<div class="contact-info-row fade-up">
+  <div class="contact-info-item">
+    <div class="ci-icon">📍</div>
+    <div class="ci-label">Headquarters</div>
+    <div class="ci-value">12 Garden Lane<br>London, EC1V 2NR</div>
+    <div class="ci-sub">United Kingdom</div>
+  </div>
+  <div class="contact-info-item">
+    <div class="ci-icon">📞</div>
+    <div class="ci-label">Telephone</div>
+    <div class="ci-value">+44 (0) 20 7946 0123</div>
+    <div class="ci-sub">Mon–Fri, 9am–6pm GMT</div>
+  </div>
+  <div class="contact-info-item">
+    <div class="ci-icon">✉️</div>
+    <div class="ci-label">Email</div>
+    <div class="ci-value">hello@ILLAM TEA.co.uk</div>
+    <div class="ci-sub">Response within 24 hours</div>
+  </div>
+  <div class="contact-info-item">
+    <div class="ci-icon">💬</div>
+    <div class="ci-label">Live Chat</div>
+    <div class="ci-value">Available on our site</div>
+    <div class="ci-sub">Mon–Sun, 8am–10pm</div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="contact-wrap">
+  <div class="contact-main">
+
+    <!-- FORM -->
+    <div class="fade-up">
+      <div class="form-header">
+        <div class="form-label">Send a Message</div>
+        <h2 class="form-title">We'd Love to<br><em>Hear From You</em></h2>
+      </div>
+      <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" placeholder="Jane" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name *</label>
+            <input type="text" id="lastName" placeholder="Smith" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="jane@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number (optional)</label>
+          <input type="tel" id="phone" placeholder="+44 7700 000000" />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <select id="subject" required>
+            <option value="" disabled selected>Select a topic...</option>
+            <option>General Enquiry</option>
+            <option>Order &amp; Delivery</option>
+            <option>Subscription Help</option>
+            <option>Wholesale &amp; B2B</option>
+            <option>Press &amp; Media</option>
+            <option>Partnership Opportunity</option>
+            <option>Sustainability &amp; Ethics</option>
+            <option>Feedback</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message *</label>
+          <textarea id="message" placeholder="Tell us how we can help you..." required></textarea>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="newsletter" />
+          <label for="newsletter">I'd like to receive ILLAM TEA news, new blend launches, and exclusive offers by email. I understand I can unsubscribe at any time. <a href="#">Privacy Policy</a></label>
+        </div>
+        <button type="submit" class="submit-btn">Send Message →</button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <h4>Message Received! 🍵</h4>
+        <p>Thank you for getting in touch. One of our team will reply within 24 hours. In the meantime, why not explore our latest tea collection?</p>
+      </div>
+    </div>
+
+    <!-- SIDE PANEL -->
+    <div class="contact-side fade-up">
+      <div class="side-card">
+        <h4>🛍 Order Support</h4>
+        <p>Questions about your order, delivery tracking, or returns? Our customer happiness team is here to help every step of the way.</p>
+        <a href="#" class="side-card-link">Track Your Order</a>
+      </div>
+      <div class="side-card">
+        <h4>🤝 Wholesale &amp; B2B</h4>
+        <p>Interested in stocking ILLAM TEA in your café, hotel, or office? We offer bespoke wholesale pricing, custom packaging and account management for business partners.</p>
+        <a href="#" class="side-card-link">Download B2B Pack</a>
+      </div>
+      <div class="side-card">
+        <h4>🕐 Opening Hours</h4>
+        <table class="hours-table">
+          <tr><td>Monday – Friday</td><td>9:00am – 6:00pm</td></tr>
+          <tr><td>Saturday</td><td>10:00am – 4:00pm</td></tr>
+          <tr><td>Sunday</td><td>Closed</td></tr>
+          <tr><td>Bank Holidays</td><td>Closed</td></tr>
+        </table>
+      </div>
+      <div class="side-card">
+        <h4>📲 Follow Us</h4>
+        <p>Stay connected for new blends, brewing guides, and behind-the-scenes from our tea estates.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><span class="social-icon">📷</span> Instagram</a>
+          <a href="#" class="social-link"><span class="social-icon">🎵</span> TikTok</a>
+          <a href="#" class="social-link"><span class="social-icon">▶️</span> YouTube</a>
+          <a href="#" class="social-link"><span class="social-icon">💼</span> LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MAP -->
+<div class="map-section fade-up">
+  <div class="map-inner">
+    <div class="map-header">
+      <div>
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--brown-light);margin-bottom:8px">Find Us</div>
+        <h2 class="map-title">Our <em>Locations</em></h2>
+      </div>
+    </div>
+    <div class="map-placeholder">
+      <div class="map-grid"></div>
+      <div class="map-pin">
+        <span class="map-pin-icon">📍</span>
+        <div class="map-pin-label">ILLAM TEA HQ</div>
+        <div class="map-pin-addr">12 Garden Lane, London EC1V 2NR</div>
+      </div>
+    </div>
+    <div class="offices-row">
+      <div class="office-card">
+        <div class="office-city">London</div>
+        <div class="office-type">Headquarters &amp; Flagship</div>
+        <div class="office-addr">12 Garden Lane<br>Clerkenwell, EC1V 2NR<br>United Kingdom<br><br>+44 (0) 20 7946 0123</div>
+      </div>
+      <div class="office-card">
+        <div class="office-city">Edinburgh</div>
+        <div class="office-type">Scotland Showroom</div>
+        <div class="office-addr">8 Royal Mile Close<br>Old Town, EH1 1ST<br>Scotland<br><br>+44 (0) 131 555 0188</div>
+      </div>
+      <div class="office-card">
+        <div class="office-city">Online</div>
+        <div class="office-type">Digital &amp; Community</div>
+        <div class="office-addr">hello@ILLAM TEA.co.uk<br>support@ILLAM TEA.co.uk<br>press@ILLAM TEA.co.uk<br><br>Live chat: ILLAM TEA.co.uk</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-header fade-up">
+      <div class="faq-label">Common Questions</div>
+      <h2 class="faq-title">Frequently <em>Asked</em></h2>
+    </div>
+    <div class="faq-list fade-up">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>How long does delivery take?</h4><span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Standard delivery is 2–3 working days via Royal Mail. Express next-day delivery is available for orders placed before 1pm. Free standard delivery is included on all orders over £35 within the UK.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>Can I pause or cancel my subscription?</h4><span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Absolutely. You can pause, skip, or cancel your subscription at any time with no fees or penalties — directly from your account dashboard. We simply ask for 48 hours notice before your next billing date.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>Do you offer wholesale or trade pricing?</h4><span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Yes — we have a dedicated B2B portal for restaurants, hotels, offices, and retailers. Please fill out the contact form above selecting "Wholesale &amp; B2B" or email us at trade@ILLAM TEA.co.uk to receive our wholesale pack and pricing guide.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>What is your returns policy?</h4><span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">If you're not completely satisfied with your purchase, contact us within 30 days for a full refund or exchange. Unopened items can be returned free of charge. For opened products, we assess on a case-by-case basis — your happiness matters more to us than the product.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>Are your teas certified organic?</h4><span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">98% of our range is certified organic by the Soil Association. The remaining 2% are rare estate teas that follow organic practices but are not yet formally certified due to the certification timelines. Full certification details are listed on every product page.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>Do you ship internationally?</h4><span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">We currently ship to the UK and EU (including Republic of Ireland). International shipping to the US and select Asia-Pacific countries is coming in late 2025. Sign up to our newsletter to be notified when your country becomes available.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Tea<span style="color:var(--sage)">Leaf</span></a>
+  <div class="footer-nav">
+    <a href="index.html">Home</a>
+    <a href="about-us.html">About Us</a>
+    <a href="future.html">Future Strategy</a>
+    <a href="references.html">References</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+  <p>© 2025 ILLAM TEA. All rights reserved.</p>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Fade-up animation
+  const observer = new IntersectionObserver(e => e.forEach(x => x.isIntersecting && x.target.classList.add('visible')), { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 400);
+    document.getElementById('mainNav').style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,0.08)' : 'none';
+  });
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const wasActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('active');
+      i.querySelector('.faq-answer').classList.remove('open');
+    });
+    if (!wasActive) {
+      item.classList.add('active');
+      answer.classList.add('open');
+    }
+  }
+
+  // Form submit
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — ILLAM TEA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage: #8a9e7b;
+    --sage-light: #c8d5bc;
+    --sage-pale: #eef2ea;
+    --cream: #f8f5ef;
+    --brown: #6b4f3a;
+    --brown-light: #c4a882;
+    --dark: #2c2416;
+    --text: #4a3f32;
+    --white: #ffffff;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 60px;
+    background: rgba(248,245,239,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(138,158,123,0.2);
+  }
+  .nav-logo {
+    font-family: var(--font-display); font-size: 22px; font-weight: 600;
+    color: var(--dark); letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--sage); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 12px; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--text); text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--sage); }
+  .nav-cta {
+    font-size: 12px; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 10px 24px;
+    border: 1px solid var(--sage); color: var(--sage);
+    background: transparent; cursor: pointer; transition: all 0.3s;
+    text-decoration: none;
+  }
+  .nav-cta:hover { background: var(--sage); color: var(--white); }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    min-height: 60vh;
+    background: var(--dark);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 140px 60px 80px;
+    position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(138,158,123,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 30%, rgba(196,168,130,0.15) 0%, transparent 50%);
+  }
+  .page-hero-leaf {
+    position: absolute; font-size: 300px; opacity: 0.04;
+    top: -50px; right: -40px; line-height: 1; pointer-events: none;
+    animation: float 8s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
+  .page-hero-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--sage-light);
+    margin-bottom: 20px; position: relative;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .page-hero-label::before, .page-hero-label::after {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--sage);
+  }
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 300; line-height: 1.05;
+    color: var(--white); position: relative;
+  }
+  .page-hero h1 em { font-style: italic; color: var(--sage-light); }
+  .page-hero p {
+    font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.6);
+    max-width: 560px; margin-top: 24px; position: relative;
+  }
+
+  /* ── TOC SIDEBAR NAV ── */
+  .page-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .toc {
+    position: sticky; top: 80px;
+    align-self: start;
+    padding: 60px 40px;
+    border-right: 1px solid rgba(138,158,123,0.2);
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+  .toc-title {
+    font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--sage); font-weight: 500; margin-bottom: 24px;
+  }
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .toc-list a {
+    font-size: 12px; font-weight: 400; color: #9a8e82;
+    text-decoration: none; padding: 8px 12px;
+    display: block; border-left: 2px solid transparent;
+    transition: all 0.3s; line-height: 1.4;
+  }
+  .toc-list a:hover, .toc-list a.toc-active {
+    color: var(--sage); border-left-color: var(--sage);
+    background: var(--sage-pale);
+  }
+  .toc-number {
+    font-family: var(--font-display); font-size: 16px;
+    color: var(--sage-light); display: block; margin-bottom: 2px;
+  }
+
+  /* ── CONTENT ── */
+  .content { padding: 0; }
+
+  /* ── SHARED SECTION STYLES ── */
+  .about-section {
+    padding: 100px 80px;
+    border-bottom: 1px solid rgba(138,158,123,0.15);
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .about-section.visible { opacity: 1; transform: translateY(0); }
+
+  .section-tag {
+    font-size: 10px; font-weight: 500; letter-spacing: 3.5px;
+    text-transform: uppercase; color: var(--sage);
+    margin-bottom: 8px; display: flex; align-items: center; gap: 10px;
+  }
+  .section-tag span {
+    font-family: var(--font-display); font-size: 13px;
+    color: var(--brown-light); font-style: italic; font-weight: 400;
+    letter-spacing: 0;
+  }
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4vw, 58px);
+    font-weight: 300; line-height: 1.1; color: var(--dark);
+    margin-bottom: 32px;
+  }
+  .section-heading em { font-style: italic; color: var(--sage); }
+  .body-text {
+    font-size: 14px; line-height: 1.9; color: #6a5f54;
+    max-width: 680px;
+  }
+  .body-text + .body-text { margin-top: 16px; }
+
+  /* ── VISION & MISSION ── */
+  .vm-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 32px; margin-top: 48px;
+  }
+  .vm-card {
+    padding: 48px 40px;
+    position: relative; overflow: hidden;
+  }
+  .vm-card.vision { background: var(--dark); }
+  .vm-card.mission { background: var(--sage-pale); border: 1px solid var(--sage-light); }
+  .vm-card::before {
+    content: attr(data-label);
+    position: absolute; top: -10px; right: 30px;
+    font-family: var(--font-display); font-size: 120px;
+    font-weight: 600; font-style: italic;
+    opacity: 0.05; color: var(--white); line-height: 1;
+    pointer-events: none;
+  }
+  .vm-card.mission::before { color: var(--sage); }
+  .vm-icon { font-size: 32px; margin-bottom: 20px; }
+  .vm-card h3 {
+    font-family: var(--font-display); font-size: 28px;
+    font-weight: 300; margin-bottom: 16px;
+  }
+  .vm-card.vision h3 { color: var(--white); }
+  .vm-card.mission h3 { color: var(--dark); }
+  .vm-card p { font-size: 14px; line-height: 1.8; }
+  .vm-card.vision p { color: rgba(255,255,255,0.65); }
+  .vm-card.mission p { color: var(--text); }
+  .vm-values {
+    margin-top: 48px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .vm-value {
+    text-align: center; padding: 32px 20px;
+    border: 1px solid var(--sage-light);
+    transition: all 0.3s;
+  }
+  .vm-value:hover { background: var(--sage); border-color: var(--sage); }
+  .vm-value:hover .vm-value-num, .vm-value:hover .vm-value-label { color: var(--white); }
+  .vm-value-num {
+    font-family: var(--font-display); font-size: 42px; font-style: italic;
+    color: var(--sage); display: block; margin-bottom: 8px;
+    transition: color 0.3s;
+  }
+  .vm-value-label {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text); transition: color 0.3s;
+  }
+
+  /* ── WHO WE ARE ── */
+  .who-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px; margin-top: 48px;
+  }
+  .who-card {
+    padding: 36px 28px;
+    background: var(--white);
+    border-top: 3px solid var(--sage);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .who-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,0.08); }
+  .who-card-icon { font-size: 32px; margin-bottom: 18px; }
+  .who-card h4 {
+    font-family: var(--font-display); font-size: 22px;
+    font-weight: 400; color: var(--dark); margin-bottom: 12px;
+  }
+  .who-card p { font-size: 13px; line-height: 1.8; color: #7a6e63; }
+  .who-story {
+    margin-top: 60px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center;
+  }
+  .who-story img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover;
+    filter: sepia(10%);
+  }
+  .who-story-text h3 {
+    font-family: var(--font-display); font-size: 32px;
+    font-weight: 300; color: var(--dark); margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  .who-story-text h3 em { font-style: italic; color: var(--sage); }
+  .timeline { margin-top: 32px; display: flex; flex-direction: column; gap: 0; }
+  .timeline-item { display: flex; gap: 20px; padding: 16px 0; border-bottom: 1px solid rgba(138,158,123,0.2); }
+  .timeline-year {
+    font-family: var(--font-display); font-size: 20px; font-style: italic;
+    color: var(--sage); min-width: 60px; flex-shrink: 0;
+  }
+  .timeline-item p { font-size: 13px; line-height: 1.6; color: var(--text); }
+
+  /* ── MARKET RESEARCH ── */
+  .market-section { background: var(--dark); }
+  .market-section .section-heading { color: var(--white); }
+  .market-section .section-tag { color: var(--brown-light); }
+  .market-section .body-text { color: rgba(255,255,255,0.6); }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: rgba(255,255,255,0.1);
+    margin-top: 50px;
+  }
+  .stat-box {
+    background: var(--dark);
+    padding: 48px 32px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.3s;
+  }
+  .stat-box:hover { background: rgba(138,158,123,0.15); }
+  .stat-number {
+    font-family: var(--font-display); font-size: 56px; font-style: italic;
+    font-weight: 300; color: var(--sage-light); display: block;
+    line-height: 1; margin-bottom: 10px;
+  }
+  .stat-label { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+  .stat-sub { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 8px; line-height: 1.5; }
+  .market-insights {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 32px; margin-top: 50px;
+  }
+  .insight-card {
+    padding: 36px;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: border-color 0.3s;
+  }
+  .insight-card:hover { border-color: var(--sage); }
+  .insight-card h4 {
+    font-family: var(--font-display); font-size: 22px; font-weight: 300;
+    color: var(--white); margin-bottom: 12px;
+  }
+  .insight-card p { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.55); }
+  .insight-tag {
+    display: inline-block; margin-bottom: 14px;
+    font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+    padding: 5px 12px; background: rgba(138,158,123,0.2);
+    color: var(--sage-light); border-radius: 0;
+  }
+
+  /* ── TARGET MARKET ── */
+  .target-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 28px; margin-top: 48px;
+  }
+  .target-card {
+    background: var(--white);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .target-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+  .target-card-header {
+    padding: 32px 28px 24px;
+    background: var(--sage-pale);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .target-avatar { font-size: 40px; }
+  .target-card-header h4 {
+    font-family: var(--font-display); font-size: 22px;
+    font-weight: 400; color: var(--dark);
+  }
+  .target-card-header span {
+    font-size: 11px; color: var(--sage); letter-spacing: 1px;
+  }
+  .target-card-body { padding: 28px; }
+  .target-tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .target-tag {
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 4px 12px; background: var(--sage-pale);
+    color: var(--sage); font-weight: 500;
+  }
+  .target-card-body p { font-size: 13px; line-height: 1.7; color: #7a6e63; }
+
+  /* ── CONSUMER PERSONA ── */
+  .persona-section { background: var(--sage-pale); }
+  .persona-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 48px; margin-top: 48px;
+  }
+  .persona-card {
+    background: var(--white);
+    display: grid; grid-template-columns: 160px 1fr;
+    gap: 0; overflow: hidden;
+  }
+  .persona-photo {
+    background: var(--sage);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 72px;
+    flex-direction: column; padding: 20px;
+    text-align: center;
+  }
+  .persona-photo-name {
+    font-family: var(--font-display); font-size: 16px;
+    font-style: italic; color: rgba(255,255,255,0.9);
+    margin-top: 10px; font-weight: 300;
+  }
+  .persona-photo-age { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 1px; }
+  .persona-details { padding: 32px; }
+  .persona-details h4 {
+    font-family: var(--font-display); font-size: 22px; font-weight: 400;
+    color: var(--dark); margin-bottom: 16px;
+  }
+  .persona-row {
+    display: flex; gap: 10px; align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .persona-row-label {
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--sage); min-width: 80px; padding-top: 2px; font-weight: 500;
+  }
+  .persona-row-value { font-size: 12px; line-height: 1.6; color: var(--text); }
+  .persona-quote {
+    margin-top: 16px; padding: 14px 16px;
+    background: var(--sage-pale); border-left: 3px solid var(--sage);
+    font-family: var(--font-display); font-size: 14px; font-style: italic;
+    color: var(--dark); line-height: 1.5;
+  }
+  .pain-goals {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-top: 16px;
+  }
+  .pain-goals-box { padding: 14px; }
+  .pain-goals-box.goals { background: rgba(138,158,123,0.1); }
+  .pain-goals-box.pains { background: rgba(107,79,58,0.06); }
+  .pain-goals-box h5 {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 8px; font-weight: 500;
+  }
+  .pain-goals-box.goals h5 { color: var(--sage); }
+  .pain-goals-box.pains h5 { color: var(--brown); }
+  .pain-goals-box li {
+    font-size: 12px; color: var(--text); line-height: 1.6;
+    margin-left: 14px; margin-bottom: 4px;
+  }
+
+  /* ── COMPETITORS ── */
+  .competitor-table-wrap { margin-top: 48px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; }
+  thead tr { background: var(--dark); }
+  thead th {
+    padding: 18px 20px; text-align: left;
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.7); font-weight: 500;
+  }
+  tbody tr { border-bottom: 1px solid rgba(138,158,123,0.2); transition: background 0.2s; }
+  tbody tr:hover { background: var(--sage-pale); }
+  tbody tr:nth-child(even) { background: var(--white); }
+  tbody tr:nth-child(even):hover { background: var(--sage-pale); }
+  td { padding: 18px 20px; font-size: 13px; vertical-align: top; }
+  td:first-child { font-family: var(--font-display); font-size: 17px; font-weight: 400; color: var(--dark); }
+  .rating { display: flex; gap: 4px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage-light); }
+  .dot.filled { background: var(--sage); }
+  .comp-tag {
+    display: inline-block; font-size: 9px; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 3px 10px;
+    border-radius: 0; font-weight: 500;
+  }
+  .comp-tag.strength { background: rgba(138,158,123,0.2); color: var(--sage); }
+  .comp-tag.weakness { background: rgba(107,79,58,0.1); color: var(--brown); }
+  .comp-tag.us { background: var(--sage); color: var(--white); }
+  .competitor-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; margin-top: 24px;
+  }
+  .comp-card {
+    background: var(--white);
+    padding: 32px 28px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .comp-card:hover { border-top-color: var(--sage); transform: translateY(-4px); }
+  .comp-card.us-card { border-top-color: var(--sage); background: var(--sage-pale); }
+  .comp-card-name {
+    font-family: var(--font-display); font-size: 24px;
+    font-weight: 400; color: var(--dark); margin-bottom: 6px;
+  }
+  .comp-card-type {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 20px;
+  }
+  .comp-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .comp-row-label { font-size: 11px; color: #9a8e82; letter-spacing: 0.5px; }
+  .bar-wrap { width: 100px; height: 4px; background: var(--sage-pale); }
+  .bar { height: 100%; background: var(--sage); }
+  .comp-differentiator {
+    margin-top: 20px; padding: 12px 16px;
+    background: rgba(138,158,123,0.1); font-size: 12px;
+    line-height: 1.6; color: var(--text); border-left: 2px solid var(--sage);
+  }
+
+  /* ── SCROLL TOP ── */
+  .scroll-top {
+    position: fixed; bottom: 40px; right: 40px; z-index: 50;
+    width: 48px; height: 48px;
+    background: var(--sage); color: var(--white);
+    border: none; cursor: pointer;
+    font-size: 20px; display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: translateY(20px);
+    transition: all 0.3s;
+  }
+  .scroll-top.show { opacity: 1; transform: translateY(0); }
+  .scroll-top:hover { background: var(--dark); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.7);
+    padding: 60px; text-align: center;
+  }
+  footer .nav-logo { color: var(--white); display: block; margin-bottom: 20px; text-decoration: none; font-family: var(--font-display); font-size: 22px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
+  footer p { font-size: 13px; }
+  footer a { color: var(--sage-light); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .page-layout { grid-template-columns: 1fr; }
+    .toc { display: none; }
+    .about-section { padding: 70px 28px; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .vm-grid, .who-story, .market-insights, .persona-grid, .persona-card { grid-template-columns: 1fr; }
+    .who-grid, .target-grid, .competitor-cards { grid-template-columns: 1fr; }
+    .stats-grid, .vm-values { grid-template-columns: 1fr 1fr; }
+    .pain-goals { grid-template-columns: 1fr; }
+    .persona-card { grid-template-columns: 1fr; }
+    .persona-photo { padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">ILLAM<span> TEA</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Blends</a></li>
+    <li><a href="about-us.html" class="active">About Us</a></li>
+    <li><a href="future.html">Future</a></li>
+    <li><a href="references.html">References</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="index.html" class="nav-cta">Shop Now</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-leaf">🍃</div>
+  <div class="page-hero-label">Our Story</div>
+  <h1>About <em>Us</em></h1>
+  <p>From a small family garden to the world's table — discover the people, purpose, and passion behind every ILLAM TEA blend.</p>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="page-layout">
+
+  <!-- SIDEBAR TOC -->
+  <aside class="toc">
+    <div class="toc-title">On This Page</div>
+    <ul class="toc-list">
+      <li>
+        <a href="#vision-mission" class="toc-active">
+          <span class="toc-number">01</span>Vision &amp; Mission
+        </a>
+      </li>
+      <li>
+        <a href="#who-we-are">
+          <span class="toc-number">02</span>Who We Are
+        </a>
+      </li>
+      <li>
+        <a href="#market-research">
+          <span class="toc-number">03</span>Market Research
+        </a>
+      </li>
+      <li>
+        <a href="#target-market">
+          <span class="toc-number">04</span>Target Market
+        </a>
+      </li>
+      <li>
+        <a href="#consumer-persona">
+          <span class="toc-number">05</span>Consumer Persona
+        </a>
+      </li>
+      <li>
+        <a href="#competitors">
+          <span class="toc-number">06</span>Key Competitors
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- ── 01 VISION & MISSION ── -->
+    <section class="about-section" id="vision-mission">
+      <div class="section-tag">01 <span>Foundation</span></div>
+      <h2 class="section-heading">Our Vision<br>&amp; <em>Mission</em></h2>
+      <p class="body-text">
+        At ILLAM TEA, everything we do is rooted in a deep conviction that tea is more than a beverage — it is a moment of stillness, a cultural ritual, and a source of wellbeing. Our vision and mission shape every decision, from sourcing to packaging.
+      </p>
+      <div class="vm-grid">
+        <div class="vm-card vision" data-label="Vision">
+          <div class="vm-icon">🌏</div>
+          <h3>Our Vision</h3>
+          <p>To become the world's most trusted premium tea brand, making the ritual of exceptional tea accessible to every household — while protecting the ecosystems that make it possible.</p>
+        </div>
+        <div class="vm-card mission" data-label="Mission">
+          <div class="vm-icon">🍵</div>
+          <h3>Our Mission</h3>
+          <p>To source, craft and deliver single-origin teas of uncompromising quality, fostering direct relationships with ethical growers and educating consumers about the true art of tea.</p>
+        </div>
+      </div>
+      <div class="vm-values">
+        <div class="vm-value">
+          <span class="vm-value-num">15+</span>
+          <span class="vm-value-label">Estate Partners</span>
+        </div>
+        <div class="vm-value">
+          <span class="vm-value-num">40+</span>
+          <span class="vm-value-label">Unique Blends</span>
+        </div>
+        <div class="vm-value">
+          <span class="vm-value-num">98%</span>
+          <span class="vm-value-label">Organic Certified</span>
+        </div>
+        <div class="vm-value">
+          <span class="vm-value-num">0%</span>
+          <span class="vm-value-label">Artificial Additives</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 02 WHO WE ARE ── -->
+    <section class="about-section" id="who-we-are">
+      <div class="section-tag">02 <span>Identity</span></div>
+      <h2 class="section-heading">Who We Are,<br>What We Do &amp; <em>Why Use Us</em></h2>
+      <p class="body-text">
+        ILLAM TEA was founded in 2014 by two tea enthusiasts who were frustrated by the mediocrity of mass-market tea. We believe the world deserves better — and we built a company to prove it.
+      </p>
+      <div class="who-grid">
+        <div class="who-card">
+          <div class="who-card-icon">🧑‍🌾</div>
+          <h4>Who We Are</h4>
+          <p>A team of tea sommeliers, sustainability advocates, and flavour scientists united by a single obsession: producing the finest cup of tea you've ever tasted, ethically and transparently.</p>
+        </div>
+        <div class="who-card">
+          <div class="who-card-icon">🫖</div>
+          <h4>What We Do</h4>
+          <p>We source directly from 15+ certified gardens across India, Japan, China, and Sri Lanka. We craft, blend, and deliver small-batch teas with no middlemen — from garden to cup.</p>
+        </div>
+        <div class="who-card">
+          <div class="who-card-icon">⭐</div>
+          <h4>Why Use Us</h4>
+          <p>Because quality is our only standard. Certified organic, nitrogen-sealed for freshness, shipped within 48 hours, with a 100% satisfaction guarantee on every order — always.</p>
+        </div>
+      </div>
+      <div class="who-story">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80" alt="Our tea gardens" />
+        <div class="who-story-text">
+          <h3>A Journey Steeped<br>in <em>Tradition &amp; Purpose</em></h3>
+          <p style="font-size:14px;line-height:1.8;color:#7a6e63;margin-bottom:8px">Our story began on the misty slopes of Darjeeling — where a chance encounter with a fourth-generation tea farmer changed everything. That morning cup of first-flush tea rewired our understanding of what was possible.</p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-year">2014</span>
+              <p>Founded in London with three estate partners and a kitchen-table philosophy.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2017</span>
+              <p>Certified organic across the entire range. Launched subscription model.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2020</span>
+              <p>Reached 50,000 customers. Expanded to 12 countries worldwide.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2024</span>
+              <p>Awarded UK's Best Premium Tea Brand. 15 estate partners globally.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 03 MARKET RESEARCH ── -->
+    <section class="about-section market-section" id="market-research">
+      <div class="section-tag" style="color:var(--brown-light)">03 <span style="color:rgba(255,255,255,0.5)">Data</span></div>
+      <h2 class="section-heading" style="color:var(--white)">Market Research<br>&amp; <em>Target Market</em></h2>
+      <p class="body-text">
+        The global premium tea market is undergoing a significant transformation. Consumers are shifting away from commodity tea bags toward artisanal, health-forward, and sustainably sourced products.
+      </p>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-number">£4.8B</span>
+          <div class="stat-label">UK Tea Market</div>
+          <div class="stat-sub">Total market value as of 2024, growing 6.2% YoY</div>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">34%</span>
+          <div class="stat-label">Premium Segment Growth</div>
+          <div class="stat-sub">Premium tea outpacing the mass market 3:1 in growth</div>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">67%</span>
+          <div class="stat-label">Health-Motivated Buyers</div>
+          <div class="stat-sub">Consumers choosing tea for wellness benefits</div>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">2.1×</span>
+          <div class="stat-label">Online Sales Growth</div>
+          <div class="stat-sub">Direct-to-consumer tea sales doubled since 2020</div>
+        </div>
+      </div>
+      <div class="market-insights">
+        <div class="insight-card">
+          <div class="insight-tag">Trend</div>
+          <h4>Wellness &amp; Functional Beverages</h4>
+          <p>Consumers are actively replacing sugary drinks and alcohol with functional teas. The wellness tea sub-segment is growing 18% annually, driven by under-35s seeking natural health solutions.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Trend</div>
+          <h4>Sustainability &amp; Ethical Sourcing</h4>
+          <p>Over 71% of millennial buyers prefer brands with transparent supply chains. Organic certification and fair-trade credentials are moving from "nice to have" to table-stakes for premium buyers.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Opportunity</div>
+          <h4>Subscription &amp; DTC Models</h4>
+          <p>The rise of the subscription economy has transformed premium food and drink. Tea subscriptions now account for 28% of premium tea revenue, with a 6× higher customer lifetime value vs. one-off purchases.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-tag">Opportunity</div>
+          <h4>Education &amp; Discovery</h4>
+          <p>83% of premium tea buyers say they wish they knew more about origin and preparation. Brands that educate win loyalty: our ILLAM TEA Academy subscribers have 4× retention rates vs. non-subscribers.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 04 TARGET MARKET ── -->
+    <section class="about-section" id="target-market">
+      <div class="section-tag">04 <span>Audience</span></div>
+      <h2 class="section-heading">Our <em>Target Market</em></h2>
+      <p class="body-text">
+        ILLAM TEA serves three primary customer segments, each with distinct needs and motivations. Understanding these groups shapes everything from product development to communication and pricing.
+      </p>
+      <div class="target-grid">
+        <div class="target-card">
+          <div class="target-card-header">
+            <div class="target-avatar">🧘‍♀️</div>
+            <div>
+              <h4>The Wellness Seeker</h4>
+              <span>Ages 25–40</span>
+            </div>
+          </div>
+          <div class="target-card-body">
+            <div class="target-tag-list">
+              <span class="target-tag">Health-Conscious</span>
+              <span class="target-tag">Urban</span>
+              <span class="target-tag">Female-led</span>
+            </div>
+            <p>Health-motivated urban professionals who view tea as part of a mindful wellness routine. Highly influenced by Instagram and wellness content. Will pay a premium for certified organic, functional blends. Regular buyers of herbal and green teas.</p>
+          </div>
+        </div>
+        <div class="target-card">
+          <div class="target-card-header">
+            <div class="target-avatar">🎓</div>
+            <div>
+              <h4>The Tea Enthusiast</h4>
+              <span>Ages 30–55</span>
+            </div>
+          </div>
+          <div class="target-card-body">
+            <div class="target-tag-list">
+              <span class="target-tag">Connoisseur</span>
+              <span class="target-tag">Educated</span>
+              <span class="target-tag">Collector</span>
+            </div>
+            <p>Knowledgeable tea lovers who enjoy the ritual, history, and nuance of fine teas. They research origins, study terroir, and appreciate single-estate offerings. Highest spend-per-order and strongest brand advocates when delighted.</p>
+          </div>
+        </div>
+        <div class="target-card">
+          <div class="target-card-header">
+            <div class="target-avatar">🎁</div>
+            <div>
+              <h4>The Gift Buyer</h4>
+              <span>Ages 28–65</span>
+            </div>
+          </div>
+          <div class="target-card-body">
+            <div class="target-tag-list">
+              <span class="target-tag">Gifting</span>
+              <span class="target-tag">Seasonal</span>
+              <span class="target-tag">Premium Spender</span>
+            </div>
+            <p>Shoppers seeking premium, beautifully packaged gifts for occasions including birthdays, Christmas, and corporate events. Brand perception and presentation drive purchase. Often converts to repeat buyers after receiving positive feedback.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 05 CONSUMER PERSONA ── -->
+    <section class="about-section persona-section" id="consumer-persona">
+      <div class="section-tag">05 <span>Personas</span></div>
+      <h2 class="section-heading">Consumer<br><em>Personas</em></h2>
+      <p class="body-text">
+        These detailed consumer profiles are built from customer research, surveys, and purchase behaviour analysis. They guide our product design, marketing tone, and customer experience decisions.
+      </p>
+      <div class="persona-grid">
+
+        <!-- Persona 1 -->
+        <div class="persona-card">
+          <div class="persona-photo" style="background:var(--sage)">
+            🧘‍♀️
+            <span class="persona-photo-name">Olivia Chen</span>
+            <span class="persona-photo-age">Age 31</span>
+          </div>
+          <div class="persona-details">
+            <h4>The Mindful Professional</h4>
+            <div class="persona-row">
+              <span class="persona-row-label">Occupation</span>
+              <span class="persona-row-value">UX Designer, London</span>
+            </div>
+            <div class="persona-row">
+              <span class="persona-row-label">Income</span>
+              <span class="persona-row-value">£52,000/year</span>
+            </div>
+            <div class="persona-row">
+              <span class="persona-row-label">Channels</span>
+              <span class="persona-row-value">Instagram, Pinterest, newsletters</span>
+            </div>
+            <div class="persona-row">
+              <span class="persona-row-label">Values</span>
+              <span class="persona-row-value">Sustainability, wellness, simplicity</span>
+            </div>
+            <div class="persona-quote">"I want my morning tea to feel intentional — not just fuel."</div>
+            <div class="pain-goals" style="margin-top:14px">
+              <div class="pain-goals-box goals">
+                <h5>Goals</h5>
+                <ul>
+                  <li>Build a calm morning ritual</li>
+                  <li>Reduce caffeine spikes</li>
+                  <li>Buy sustainably</li>
+                </ul>
+              </div>
+              <div class="pain-goals-box pains">
+                <h5>Pain Points</h5>
+                <ul>
+                  <li>Overwhelmed by choice</li>
+                  <li>Sceptical of vague claims</li>
+                  <li>Hates wasteful packaging</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Persona 2 -->
+        <div class="persona-card">
+          <div class="persona-photo" style="background:var(--dark)">
+            🎓
+            <span class="persona-photo-name">James Thornton</span>
+            <span class="persona-photo-age">Age 47</span>
+          </div>
+          <div class="persona-details">
+            <h4>The Heritage Connoisseur</h4>
+            <div class="persona-row">
+              <span class="persona-row-label">Occupation</span>
+              <span class="persona-row-value">Solicitor, Edinburgh</span>
+            </div>
+            <div class="persona-row">
+              <span class="persona-row-label">Income</span>
+              <span class="persona-row-value">£95,000/year</span>
+            </div>
+            <div class="persona-row">
+              <span class="persona-row-label">Channels</span>
+              <span class="persona-row-value">Email, direct search, specialist blogs</span>
+            </div>
+            <div class="persona-row">
+              <span class="persona-row-label">Values</span>
+              <span class="persona-row-value">Quality, provenance, tradition</span>
+            </div>
+            <div class="persona-quote">"If you can't tell me the estate, the elevation, and the harvest date — I'm not interested."</div>
+            <div class="pain-goals" style="margin-top:14px">
+              <div class="pain-goals-box goals">
+                <h5>Goals</h5>
+                <ul>
+                  <li>Find truly rare teas</li>
+                  <li>Expand knowledge</li>
+                  <li>Perfect the brew</li>
+                </ul>
+              </div>
+              <div class="pain-goals-box pains">
+                <h5>Pain Points</h5>
+                <ul>
+                  <li>Inconsistent quality</li>
+                  <li>Lack of transparency</li>
+                  <li>Poor brewing guidance</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Persona 3 -->
+        <div class="persona-card">
+          <div class="persona-photo" style="background:var(--brown)">
+            🎁
+            <span class="persona-photo-name">Priya Mehta</span>
+            <span class="persona-photo-age">Age 35</span>
+          </div>
+          <div class="persona-details">
+            <h4>The Thoughtful Gift-Giver</h4>
+            <div class="persona-row">
+              <span class="persona-row-label">Occupation</span>
+              <span class="persona-row-value">Marketing Manager, Bristol</span>
+            </div>
+            <div class="persona-row">
+              <span class="persona-row-label">Income</span>
+              <span class="persona-row-value">£68,000/year</span>
+            </div>
+            <div class="persona-row">
+              <span class="persona-row-label">Channels</span>
+              <span class="persona-row-value">Google, Instagram ads, word of mouth</span>
+            </div>
+            <div class="persona-row">
+              <span class="persona-row-label">Values</span>
+              <span class="persona-row-value">Thoughtfulness, presentation, ethics</span>
+            </div>
+            <div class="persona-quote">"I want a gift that says 'I put thought into this' — not just money."</div>
+            <div class="pain-goals" style="margin-top:14px">
+              <div class="pain-goals-box goals">
+                <h5>Goals</h5>
+                <ul>
+                  <li>Impress without excess</li>
+                  <li>Beautiful packaging</li>
+                  <li>Easy reordering</li>
+                </ul>
+              </div>
+              <div class="pain-goals-box pains">
+                <h5>Pain Points</h5>
+                <ul>
+                  <li>Generic gift options</li>
+                  <li>Unclear what's inside</li>
+                  <li>Slow delivery times</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Persona 4 -->
+        <div class="persona-card">
+          <div class="persona-photo" style="background:#5a7a4a">
+            🌱
+            <span class="persona-photo-name">Leo Martinez</span>
+            <span class="persona-photo-age">Age 23</span>
+          </div>
+          <div class="persona-details">
+            <h4>The Eco-Conscious Explorer</h4>
+            <div class="persona-row">
+              <span class="persona-row-label">Occupation</span>
+              <span class="persona-row-value">Graduate, Manchester</span>
+            </div>
+            <div class="persona-row">
+              <span class="persona-row-label">Income</span>
+              <span class="persona-row-value">£26,000/year</span>
+            </div>
+            <div class="persona-row">
+              <span class="persona-row-label">Channels</span>
+              <span class="persona-row-value">TikTok, YouTube, Reddit</span>
+            </div>
+            <div class="persona-row">
+              <span class="persona-row-label">Values</span>
+              <span class="persona-row-value">Sustainability, transparency, discovery</span>
+            </div>
+            <div class="persona-quote">"Show me the supply chain. I'll pay more if I know it's actually doing good."</div>
+            <div class="pain-goals" style="margin-top:14px">
+              <div class="pain-goals-box goals">
+                <h5>Goals</h5>
+                <ul>
+                  <li>Ethical consumption</li>
+                  <li>Try new experiences</li>
+                  <li>Reduce footprint</li>
+                </ul>
+              </div>
+              <div class="pain-goals-box pains">
+                <h5>Pain Points</h5>
+                <ul>
+                  <li>Greenwashing brands</li>
+                  <li>High price barriers</li>
+                  <li>Too much choice</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── 06 KEY COMPETITORS ── -->
+    <section class="about-section" id="competitors">
+      <div class="section-tag">06 <span>Landscape</span></div>
+      <h2 class="section-heading">Key<br><em>Competitors</em></h2>
+      <p class="body-text">
+        The premium tea market has a range of well-established competitors. Understanding their strengths and weaknesses helps us sharpen our positioning and communicate our distinct advantage clearly.
+      </p>
+
+      <div class="competitor-cards">
+        <div class="comp-card">
+          <div class="comp-card-name">Fortnum &amp; Mason</div>
+          <div class="comp-card-type">Heritage Luxury</div>
+          <div class="comp-row">
+            <span class="comp-row-label">Brand Prestige</span>
+            <div class="bar-wrap"><div class="bar" style="width:95%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Sustainability</span>
+            <div class="bar-wrap"><div class="bar" style="width:45%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Online Experience</span>
+            <div class="bar-wrap"><div class="bar" style="width:55%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Price Accessibility</span>
+            <div class="bar-wrap"><div class="bar" style="width:20%"></div></div>
+          </div>
+          <div class="comp-differentiator">
+            Strong heritage brand but very high price point, limited organic range, and dated digital presence.
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card-name">Whittard of Chelsea</div>
+          <div class="comp-card-type">Accessible Premium</div>
+          <div class="comp-row">
+            <span class="comp-row-label">Brand Prestige</span>
+            <div class="bar-wrap"><div class="bar" style="width:70%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Sustainability</span>
+            <div class="bar-wrap"><div class="bar" style="width:50%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Online Experience</span>
+            <div class="bar-wrap"><div class="bar" style="width:75%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Price Accessibility</span>
+            <div class="bar-wrap"><div class="bar" style="width:65%"></div></div>
+          </div>
+          <div class="comp-differentiator">
+            Wide product range but lacks single-origin focus and transparency in sourcing or estate credentials.
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card-name">Pukka Herbs</div>
+          <div class="comp-card-type">Organic Wellness</div>
+          <div class="comp-row">
+            <span class="comp-row-label">Brand Prestige</span>
+            <div class="bar-wrap"><div class="bar" style="width:65%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Sustainability</span>
+            <div class="bar-wrap"><div class="bar" style="width:85%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Online Experience</span>
+            <div class="bar-wrap"><div class="bar" style="width:70%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Price Accessibility</span>
+            <div class="bar-wrap"><div class="bar" style="width:75%"></div></div>
+          </div>
+          <div class="comp-differentiator">
+            Strong in herbal/functional blends but lacks the classic tea connoisseur range and estate sourcing story.
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card-name">Jing Tea</div>
+          <div class="comp-card-type">Artisan Single-Origin</div>
+          <div class="comp-row">
+            <span class="comp-row-label">Brand Prestige</span>
+            <div class="bar-wrap"><div class="bar" style="width:80%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Sustainability</span>
+            <div class="bar-wrap"><div class="bar" style="width:80%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Online Experience</span>
+            <div class="bar-wrap"><div class="bar" style="width:85%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Price Accessibility</span>
+            <div class="bar-wrap"><div class="bar" style="width:30%"></div></div>
+          </div>
+          <div class="comp-differentiator">
+            Our closest competitor. Excellent sourcing but premium pricing limits mass adoption. B2B-heavy model.
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card-name">Clipper Teas</div>
+          <div class="comp-card-type">Ethical Mass Market</div>
+          <div class="comp-row">
+            <span class="comp-row-label">Brand Prestige</span>
+            <div class="bar-wrap"><div class="bar" style="width:55%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Sustainability</span>
+            <div class="bar-wrap"><div class="bar" style="width:90%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Online Experience</span>
+            <div class="bar-wrap"><div class="bar" style="width:60%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Price Accessibility</span>
+            <div class="bar-wrap"><div class="bar" style="width:90%"></div></div>
+          </div>
+          <div class="comp-differentiator">
+            Strong ethics credentials at mass-market price. However lacks the premium positioning and connoisseur appeal.
+          </div>
+        </div>
+
+        <div class="comp-card us-card">
+          <div class="comp-card-name">✦ ILLAM TEA</div>
+          <div class="comp-card-type">Premium Ethical Direct-to-Consumer</div>
+          <div class="comp-row">
+            <span class="comp-row-label">Brand Prestige</span>
+            <div class="bar-wrap"><div class="bar" style="width:82%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Sustainability</span>
+            <div class="bar-wrap"><div class="bar" style="width:95%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Online Experience</span>
+            <div class="bar-wrap"><div class="bar" style="width:92%"></div></div>
+          </div>
+          <div class="comp-row">
+            <span class="comp-row-label">Price Accessibility</span>
+            <div class="bar-wrap"><div class="bar" style="width:60%"></div></div>
+          </div>
+          <div class="comp-differentiator" style="background:rgba(138,158,123,0.2);border-left-color:var(--dark)">
+            Our edge: full supply-chain transparency, best-in-class DTC experience, genuine single-origin with a human story at accessible premium pricing.
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary table -->
+      <div class="competitor-table-wrap" style="margin-top:50px">
+        <table>
+          <thead>
+            <tr>
+              <th>Brand</th>
+              <th>Positioning</th>
+              <th>Price Point</th>
+              <th>Sustainability</th>
+              <th>Our Advantage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fortnum &amp; Mason</td>
+              <td>Heritage luxury, gifting</td>
+              <td>£££££</td>
+              <td><div class="rating"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+              <td><span class="comp-tag strength">Better Value</span></td>
+            </tr>
+            <tr>
+              <td>Whittard</td>
+              <td>Accessible premium, wide range</td>
+              <td>£££</td>
+              <td><div class="rating"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div></td>
+              <td><span class="comp-tag strength">Single-Origin Story</span></td>
+            </tr>
+            <tr>
+              <td>Pukka Herbs</td>
+              <td>Wellness, herbal, functional</td>
+              <td>££</td>
+              <td><div class="rating"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div></td>
+              <td><span class="comp-tag strength">Classic Range</span></td>
+            </tr>
+            <tr>
+              <td>Jing Tea</td>
+              <td>Artisan, connoisseur, B2B</td>
+              <td>££££</td>
+              <td><div class="rating"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div></td>
+              <td><span class="comp-tag strength">DTC &amp; Access</span></td>
+            </tr>
+            <tr>
+              <td>Clipper</td>
+              <td>Ethical mass-market</td>
+              <td>£</td>
+              <td><div class="rating"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div></td>
+              <td><span class="comp-tag strength">Premium Quality</span></td>
+            </tr>
+            <tr style="background:var(--sage-pale)!important">
+              <td><strong>ILLAM TEA ✦</strong></td>
+              <td>Premium ethical DTC, single-origin</td>
+              <td>£££</td>
+              <td><div class="rating"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div></td>
+              <td><span class="comp-tag us">That's Us</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div><!-- /content -->
+</div><!-- /page-layout -->
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="nav-logo">Tea<span style="color:var(--sage)">Leaf</span></a>
+  <p>© 2025 ILLAM TEA. All rights reserved. · <a href="index.html">Back to Main Site</a></p>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Fade-in observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.about-section').forEach(el => observer.observe(el));
+
+  // TOC active state
+  const sections = document.querySelectorAll('.about-section');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  const tocObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(a => a.classList.remove('toc-active'));
+        const active = document.querySelector(`.toc-list a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('toc-active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => tocObserver.observe(s));
+
+  // Scroll to top button
+  const scrollBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('show', window.scrollY > 400);
+  });
+
+  // Nav scroll shadow
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,0.08)' : 'none';
+  });
+</script>
+</body>
+</html>
